@@ -4,8 +4,12 @@
 $bscolor: #e3e3e3
 ;
 
-.header {
+.navbar
+{
   background-color: $bscolor;
+  .navbar-brand {
+    font-size: 5em;
+  }
 }
 
 .footer {
