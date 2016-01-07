@@ -16,27 +16,11 @@
   </head>
 <body>
 
-<nav class="navbar navbar-light bg-faded">
-  <a class="navbar-brand" href="#">Banzai Roulette</a>
-
-  <!--
-    Below we include the Login Button social plugin. This button uses
-    the JavaScript SDK to present a graphical Login button that triggers
-    the FB.login() function when clicked.
-  -->
-
-  <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-  </fb:login-button>
-
-  <div id="status">
-  </div>
-</nav>
+<%= render partial: "layouts/header" %>
 
 <%= yield %>
 
-<div class="container footer">
-  <img src="https://raw.githubusercontent.com/cirla/vim-giphy/master/powered_by_giphy.gif" alt="">
-</div>
+<%= render partial: "layouts/footer" %>
 
 <!--Facebook login-->
 <script>
