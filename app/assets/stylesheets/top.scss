@@ -1,14 +1,28 @@
 // Place all the styles related to the top controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-$bscolor: #e3e3e3
-;
+$bscolor: #e3e3e3;
+$fontsize: 5em;
 
-.navbar
-{
+.navbar {
+  min-height: 90px;
   background-color: $bscolor;
   .navbar-brand {
-    font-size: 5em;
+    font-size: $fontsize
+  }
+  .container-fluid {
+    padding-top: 15px;
+  }
+  .navbar-right {
+    margin-top: -5px;
+    .fb_login {
+      a {
+        padding: 0;
+      }
+    }
+    .fb_logged_in {
+      margin-top: 10px;
+    }
   }
 }
 
