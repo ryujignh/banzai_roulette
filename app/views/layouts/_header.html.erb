@@ -4,11 +4,13 @@
 
     <ul class="nav navbar-nav navbar-right">
       <% if current_user %>
-        <li>Signed in as: <%= current_user.name %>
-          - <%= image_tag(@auth['info']['image'], width: '50', height: '50', class: 'img-circle') %></li>
-        <li><%= link_to "Sign Out", 'sign_out', method: :delete %></li>
+        <div class="fb_logged_in">
+          <li><%= image_tag(@auth['info']['image'], width: '50', height: '50', class: 'img-circle') %>
+            <%= link_to "Sign Out", 'sign_out', method: :delete %>
+          </li>
+        </div>
       <% else %>
-        <li><%= link_to "auth/facebook" do %><%= image_tag('facebook.png', class: 'img_login') %></li>
+        <li class="fb_login"><%= link_to "auth/facebook" do %><i class="fa fa-facebook-square fa-5x img_login"></i></li>
           <% end %>
       <% end %>
     </ul>
