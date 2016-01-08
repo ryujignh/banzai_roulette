@@ -11,25 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160108045732) do
+ActiveRecord::Schema.define(version: 20160107222457) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "table_users", force: :cascade do |t|
+  create_table "game_sessions", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "table_id"
+    t.integer "game_id"
     t.string  "word"
-    t.boolean "loser"
+    t.integer "wins"
+    t.integer "loses"
+    t.boolean "active"
   end
 
-  add_index "table_users", ["table_id"], name: "index_table_users_on_table_id", using: :btree
-  add_index "table_users", ["user_id"], name: "index_table_users_on_user_id", using: :btree
+  add_index "game_sessions", ["game_id"], name: "index_game_sessions_on_game_id", using: :btree
+  add_index "game_sessions", ["user_id"], name: "index_game_sessions_on_user_id", using: :btree
 
-  create_table "tables", force: :cascade do |t|
-    t.string  "title"
-    t.string  "giphy_url"
-    t.boolean "posted_to_facebook"
+  create_table "games", force: :cascade do |t|
+    t.integer "round_number"
+    t.boolean "round_open"
+    t.string  "word"
   end
 
   create_table "users", force: :cascade do |t|
@@ -40,6 +42,6 @@ ActiveRecord::Schema.define(version: 20160108045732) do
     t.string "name"
   end
 
-  add_foreign_key "table_users", "tables"
-  add_foreign_key "table_users", "users"
+  add_foreign_key "game_sessions", "games"
+  add_foreign_key "game_sessions", "users"
 end
