@@ -12,6 +12,5 @@
 !/log/.keep
 /tmp
 .idea
+dk_sandbox.js
 /config/facebook.yml
-/dk_sandbox.js
-
