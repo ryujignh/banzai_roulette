@@ -1,7 +1,7 @@
 class CreateTableUsers < ActiveRecord::Migration
   def change
     create_table :table_users do |t|
-      t.references :user, index: true
+      t.references :users, index: true
       t.references :table, index: true
       t.string :word
       t.boolean :loser
