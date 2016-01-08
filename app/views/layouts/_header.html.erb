@@ -1,4 +1,16 @@
 <nav class="navbar navbar-light bg-faded">
-  <a class="navbar-brand" href="/">Banzai Roulette</a>
-  <%= render(:partial => 'users/index') %>
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">Banzai Roulette</a>
+
+    <ul class="nav navbar-nav navbar-right">
+      <% if current_user %>
+        <li>Signed in as: <%= current_user.name %>
+          - <%= image_tag(@auth['info']['image'], width: '50', height: '50', class: 'img-circle') %></li>
+        <li><%= link_to "Sign Out", 'sign_out', method: :delete %></li>
+      <% else %>
+        <li><%= link_to "auth/facebook" do %><%= image_tag('facebook.png', class: 'img_login') %></li>
+          <% end %>
+      <% end %>
+    </ul>
+  </div>
 </nav>

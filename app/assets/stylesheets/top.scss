@@ -1,14 +1,17 @@
 // Place all the styles related to the top controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-$bscolor: #e3e3e3
-;
+$bscolor: #e3e3e3;
+$fontsize: 5em;
 
 .navbar
 {
   background-color: $bscolor;
   .navbar-brand {
-    font-size: 5em;
+    font-size: $fontsize
+  }
+  .img_login {
+    width: 200px;
   }
 }
 
