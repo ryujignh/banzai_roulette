@@ -7,6 +7,7 @@ $fontsize: 5em;
 .navbar {
   min-height: 90px;
   background-color: $bscolor;
+  padding-top: 15px;
   .navbar-brand {
     font-size: $fontsize
   }
@@ -15,6 +16,7 @@ $fontsize: 5em;
   }
   .navbar-right {
     margin-top: -5px;
+    margin-right: 15px;
     .fb_login {
       a {
         padding: 0;
