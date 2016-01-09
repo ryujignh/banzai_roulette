@@ -10,4 +10,11 @@ class User < ActiveRecord::Base
       user.save!
     end
   end
+
+  def facebook
+    @facebook ||= Koala::Facebook::API.new(facebook_token)
+  end
+
+  #to post to facebook wall, u.facebook.put_wall_post("Giphy URL HERE")
+
 end
