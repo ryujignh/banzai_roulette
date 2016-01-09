@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160108045732) do
+ActiveRecord::Schema.define(version: 20160109001507) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,11 +33,12 @@ ActiveRecord::Schema.define(version: 20160108045732) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "facebook_token"
-    t.string "avat_url"
-    t.string "provider"
-    t.string "uid"
-    t.string "name"
+    t.string   "facebook_token"
+    t.string   "avat_url"
+    t.string   "provider"
+    t.string   "uid"
+    t.string   "name"
+    t.datetime "oauth_expires_at"
   end
 
   add_foreign_key "table_users", "tables"
