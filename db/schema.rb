@@ -29,6 +29,8 @@ ActiveRecord::Schema.define(version: 20160109001507) do
   add_index "game_sessions", ["user_id"], name: "index_game_sessions_on_user_id", using: :btree
 
   create_table "games", force: :cascade do |t|
+    t.string  "name"
+    t.string  "password"
     t.integer "round_number"
     t.boolean "round_open"
     t.string  "word"
