@@ -16,17 +16,12 @@ class ApplicationController < ActionController::Base
       if !current_user
         flash[:alert] = "You must log in."
         redirect_to root_path
-      else 
-        redirect_to(user_path, :notice => "Message was successfully sent.")
       end
     end
 
     def restrict_access_home
-      if !current_user
-        flash[:alert] = "You must log in."
-
-      else 
-        redirect_to(user_path, :notice => "Message was successfully sent.")
+      if current_user
+        redirect_to(current_user, :notice => "Message was successfully sent.")
       end
     end
 
