@@ -5,7 +5,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(1000) 
-
   end
 end
 

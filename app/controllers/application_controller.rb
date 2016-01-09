@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
     def restrict_access
       if !current_user
         flash[:alert] = "You must log in."
-        redirect_to '/top'
+        redirect_to 'users/show'
       end
     end
 end
