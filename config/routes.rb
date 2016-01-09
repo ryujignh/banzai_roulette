@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   # get 'auth/facebook/callback', to: 'users#login'
 
   resources :users
+  resources :games
+  resources :top
+
 
 
 end

@@ -1,9 +1,6 @@
 class TopController < ApplicationController
   before_action :set_auth
-
-  def index
-    
-  end
+  before_filter :restrict_access_home 
 
   def profile
 
