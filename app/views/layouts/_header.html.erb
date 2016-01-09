@@ -1,11 +1,9 @@
 <div class="container">
-  <nav class="navbar navbar-light bg-faded">
-    <a class="navbar-brand" href="/">Banzai Roulette</a>
-
+  <nav class="navbar navbar-default navbar-static-top">
+  
     <ul class="nav navbar-nav navbar-right">
       <% if current_user %>
         <div class="fb_logged_in">
-            <%= link_to "Sign Out", 'sign_out', method: :delete %>
 
         </div>
       <% else %>

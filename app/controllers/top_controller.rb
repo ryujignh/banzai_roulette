@@ -1,5 +1,6 @@
 class TopController < ApplicationController
   before_action :set_auth
+  # before_filter :restrict_access
 
   def profile
 
