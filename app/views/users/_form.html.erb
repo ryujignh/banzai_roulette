@@ -1,0 +1,11 @@
+<%= form_for Game.new do |f| %>
+
+  <div>
+    <%= f.label "title" %><br>
+    <%= f.text_field "round_number" %>
+  </div>
+
+  <div>
+    <%= f.submit "Submit" %> 
+  </div>
+<% end %>

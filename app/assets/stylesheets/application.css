@@ -15,7 +15,7 @@
  */
 
 .mainbody {
-    height: 960px;
+    height: 100%;
 }
 
 .player_img {
@@ -63,8 +63,16 @@ position:relative;
  visibility: hidden;
 }
 
+#giphy-banner{
+  width: 100px;
+  height: 20px;
+  padding-left: 10px;
+  vertical-align: middle;
+}
 
-
+.navbar-static-bottom{
+  margin-top: 15px;
+}
 
 
 
