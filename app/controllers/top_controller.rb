@@ -2,6 +2,7 @@ class TopController < ApplicationController
   before_action :set_auth
 
   def index
+    
   end
 
   def profile
