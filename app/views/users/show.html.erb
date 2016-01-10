@@ -1,47 +1,49 @@
 <div class="row">
   <div class="col-md-2">
-    <h2><%= @user.name %> </h2>
-  </div> 
+    <h2><%= @user.first_name %> </h2>
+  </div>
   <div class="col-md-5">
     <h2>Active games</h2>
     <div class="table-responsive">
-    <table class="table">
+      <table class="table">
         <thead>
-          <th>Id</th>
-          <th>Action</th>
+        <th>Id</th>
+        <th>Action</th>
         </thead>
         <tbody>
-          <tr>
-            <td>a</td>
-            <td><a href="#" class="btn btn-success">Enter Game</a></td>
-          </tr>
+        <tr>
+          <td>a</td>
+          <td><a href="#" class="btn btn-success">Enter Game</a></td>
+        </tr>
         </tbody>
-    </table>
+      </table>
+    </div>
   </div>
-  </div> 
   <div class="col-md-5">
     <h2>Game invitations</h2>
     <div class="table-responsive">
-    <table class="table">
+      <table class="table">
         <thead>
-          <th>Id</th>
-          <th>Action</th>
+        <th>Id</th>
+        <th>Action</th>
         </thead>
         <tbody>
-          <tr>
-            <td>a</td>
-            <td><a href="#" class="btn btn-success">Join Game</a></td>
-          </tr>
+        <tr>
+          <td>a</td>
+          <td><a href="#" class="btn btn-success">Join Game</a></td>
+        </tr>
         </tbody>
-    </table>
+      </table>
+    </div>
   </div>
-  </div> 
 </div>
 <div class="row">
   <div class="col-md-12">
-  <div class="text-center">
-    <%= render 'form' %>
-    <a href="/auth/facebook" class="btn btn-primary">Create a new game</a>
+    <div class="text-center">
+      <%= render 'form' %>
+      <a href="/auth/facebook" class="btn btn-primary">Create a new game</a>
+    </div>
   </div>
-</div>
+  <%= render partial: 'invitation' %>
+  <a href="/sign_out" class="btn btn-primary">Sign out</a>
 </div>

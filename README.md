@@ -4,3 +4,5 @@ Random gif generator using Giphy api
 # To start server
 $ rails s
 Access to localhost:3000
+
+# New gem "thin" installed.
