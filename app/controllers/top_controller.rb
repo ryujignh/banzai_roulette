@@ -17,7 +17,6 @@ class TopController < ApplicationController
   end
 
   def authorize
-    binding.pry
     respond_to do |format|
       format.html # authorize.html.erb
     end
