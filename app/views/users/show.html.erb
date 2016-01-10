@@ -1,11 +1,12 @@
 <div class="row">
   <div class="col-md-2">
     <h2><%= @user.name %> </h2>
+    <img src="http://graph.facebook.com/<%=@user.uid%>/picture?type=normal">
   </div> 
   <div class="col-md-5">
     <h2>Active games</h2>
     <div class="table-responsive">
-    <table class="table">
+      <table class="table">
         <thead>
           <th>Id</th>
           <th>Action</th>
@@ -16,13 +17,13 @@
             <td><a href="#" class="btn btn-success">Enter Game</a></td>
           </tr>
         </tbody>
-    </table>
-  </div>
+      </table>
+    </div>
   </div> 
   <div class="col-md-5">
     <h2>Game invitations</h2>
     <div class="table-responsive">
-    <table class="table">
+      <table class="table">
         <thead>
           <th>Id</th>
           <th>Action</th>
@@ -33,14 +34,16 @@
             <td><a href="#" class="btn btn-success">Join Game</a></td>
           </tr>
         </tbody>
-    </table>
+      </table>
+    </div>
   </div>
+<div class="row">
+  <div class="col-md-2">
+    <h2>Create a new game</h2>
+    <div class="text-center">
+      <%= render 'form' %>
+    </div>
   </div> 
 </div>
-<div class="row">
-  <div class="col-md-12">
-  <div class="text-center">
-    <%= render 'form' %>
-  </div>
-</div>
-</div>
+
+
