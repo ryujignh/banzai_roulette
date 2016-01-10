@@ -4,18 +4,22 @@
     <img src="http://graph.facebook.com/<%=@user.uid%>/picture?type=normal">
   </div> 
   <div class="col-md-5">
-    <h2>Active games</h2>
+    <h2>Your games</h2>
     <div class="table-responsive">
       <table class="table">
         <thead>
-          <th>Id</th>
+          <th>Name</th>
+          <th>No. Players</th>
           <th>Action</th>
         </thead>
         <tbody>
-          <tr>
-            <td>a</td>
-            <td><a href="#" class="btn btn-success">Enter Game</a></td>
-          </tr>
+          <% @games.each do |game| %>
+            <tr>
+              <td><%= game.name %></td>
+              <td><%= game.players %></td>
+              <td><a href="/games/<%= game.id %>" class="btn btn-success">Enter Game</a></td>
+            </tr> 
+          <% end %>
         </tbody>
       </table>
     </div>
@@ -29,10 +33,6 @@
           <th>Action</th>
         </thead>
         <tbody>
-          <tr>
-            <td>a</td>
-            <td><a href="#" class="btn btn-success">Join Game</a></td>
-          </tr>
         </tbody>
       </table>
     </div>

@@ -1,12 +1,20 @@
 class Game < ActiveRecord::Base
 belongs_to :user
+belongs_to :game
 after_initialize :defaults
+
+def new
+
+end
+
+def create
+
+end
+
 
 def defaults
    unless persisted?
-    self.round_number||=1
-    self.round_open||=1
-    self.players||=6
+
   end
 end
 

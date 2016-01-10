@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :users
   resources :games
   resources :top
+  resources :game_sessions
 
 
 
