@@ -6,11 +6,11 @@ describe Giphy::Configuration do
     it "allows setting version and api_key values" do
       Giphy::Configuration.configure do |config|
         config.version = 'v2'
-        config.api_key = '123qwe'
+        config.api_key = 'dc6zaTOxFJmzC'
       end
 
       expect(Giphy::Configuration.version).to eq 'v2'
-      expect(Giphy::Configuration.api_key).to eq '123qwe'
+      expect(Giphy::Configuration.api_key).to eq 'dc6zaTOxFJmzC'
     end
   end
 
