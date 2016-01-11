@@ -1,49 +1,50 @@
 <div class="row">
   <div class="col-md-2">
     <h2><%= @user.name %> </h2>
-    <img src="http://graph.facebook.com/<%=@user.uid%>/picture?type=normal">
-  </div> 
+    <img src="http://graph.facebook.com/<%= @user.uid %>/picture?type=normal">
+  </div>
   <div class="col-md-5">
     <h2>Your games</h2>
     <div class="table-responsive">
       <table class="table">
         <thead>
-          <th>Name</th>
-          <th>No. Players</th>
-          <th>Action</th>
+        <th>Name</th>
+        <th>No. Players</th>
+        <th>Action</th>
         </thead>
         <tbody>
-          <% @games.each do |game| %>
-            <tr>
-              <td><%= game.name %></td>
-              <td><%= game.players %></td>
-              <td><a href="/games/<%= game.id %>" class="btn btn-success">Enter Game</a></td>
-            </tr> 
-          <% end %>
+        <% @games.each do |game| %>
+          <tr>
+            <td><%= game.name %></td>
+            <td><%= game.players %></td>
+            <td><a href="/games/<%= game.id %>" class="btn btn-success">Enter Game</a></td>
+          </tr>
+        <% end %>
         </tbody>
       </table>
     </div>
-  </div> 
+  </div>
   <div class="col-md-5">
     <h2>Game invitations</h2>
     <div class="table-responsive">
       <table class="table">
         <thead>
-          <th>Id</th>
-          <th>Action</th>
+        <th>Id</th>
+        <th>Action</th>
         </thead>
         <tbody>
         </tbody>
       </table>
     </div>
   </div>
-<div class="row">
-  <div class="col-md-2">
-    <h2>Create a new game</h2>
-    <div class="text-center">
-      <%= render 'form' %>
+  <div class="row">
+    <div class="col-md-2">
+      <h2>Create a new game</h2>
+      <div class="text-center">
+        <%= render 'form' %>
+      </div>
     </div>
-  </div> 
+  </div>
+
+
 </div>
-
-
