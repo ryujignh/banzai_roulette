@@ -30,11 +30,14 @@ ActiveRecord::Schema.define(version: 20160109234158) do
 
   create_table "games", force: :cascade do |t|
     t.string  "name"
-    t.string  "password"
     t.integer "round_number"
     t.boolean "round_open"
     t.string  "word"
+    t.integer "players"
+    t.integer "user_id"
   end
+
+  add_index "games", ["user_id"], name: "index_games_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "facebook_token"

@@ -16,6 +16,30 @@
   <%= csrf_meta_tags %>
   </head>
 <body>
+
+<div class="giphy">
+  <script>
+
+  var xhr = $.get("http://api.giphy.com/v1/gifs/random?q=lighthouse&api_key=dc6zaTOxFJmzC");
+  xhr.done(function(data) {
+    console.log(data);
+  });
+  var api = "http://api.giphy.com/v1/gifs/random?";
+  var apiKey = "api_key=dc6zaTOxFJmzC";
+  var tag = "&tag=lighthouse";
+
+    function setup() {
+      noCanvas();
+      var url = api + apiKey + tag;
+      loadJSON(url, gotData);
+    }
+
+    function gotData(giphy)  {
+      createImg(giphy.data[0].image_original_url);
+    }
+
+  </script>
+</div>
   <%= render partial: "layouts/header" %>
   <div class="container mainbody">
     <%= yield %>
