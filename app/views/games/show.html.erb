@@ -1,9 +1,12 @@
 <div class="container mainbody">
   <p>This app will ruin your Facebook wall!</p>
   <div class="playing-cricle">
-    <%= render(:partial => 'games/player_circle') %>
+    <%= render 'player_circle' %>
   </div>
   <div>
-   <%= link_to 'Back to your profile', current_user%>
+    <%= link_to 'Back to your profile', current_user%>
+   
+    <%= link_to 'test', Gamesession.create({ :game_id => @game.id, :user_id => current_user.id }) %>
+  
   </div>
 </div>

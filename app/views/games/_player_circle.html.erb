@@ -15,8 +15,6 @@
       $(player_outer_wrapper).css("top", y + "px").css("left", x + "px");;
       var player_wrapper = $("<div/>",{"class":"player_wrapper"});
       var player_caption = $("<p/>", {"text":'Join', "class":"player_caption"});
-      var button = $("<a/>", {"text":"Join Game", "href": "game_sessions/new", "class" :"btn btn-success"})
-      $(player_caption).append(button);
       $(player_outer_wrapper).append(player_wrapper).append(player_caption);
       $("#player_circle").append(player_outer_wrapper);
     };

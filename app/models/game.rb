@@ -1,5 +1,6 @@
 class Game < ActiveRecord::Base
 belongs_to :user
+has_many :gamesessions
 after_initialize :defaults
 
 def defaults
