@@ -1,5 +1,6 @@
 class GamesessionsController < ApplicationController
  before_filter :restrict_access
+
   def index
   end
 
@@ -9,15 +10,16 @@ class GamesessionsController < ApplicationController
 
   def show
     @gamesession = Gamesession.find(params[:id])
+    @players = @gamesession.users
   end
 
   def create
     @gamesession = Gamesession.new(gamesession_params)
 
     if @gamesession.save
-      redirect_to gamessesion_path(1)
+      redirect_to game_gamesession_path, notice: "#{@movie.title} was submitted successfully!"
     else
-      redirect_to gamessession_path(2)
+      render :new
     end
   end
 
