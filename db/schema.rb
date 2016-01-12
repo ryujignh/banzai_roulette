@@ -16,7 +16,18 @@ ActiveRecord::Schema.define(version: 20160109234158) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "game_sessions", force: :cascade do |t|
+  create_table "games", force: :cascade do |t|
+    t.string  "name"
+    t.integer "round_number"
+    t.boolean "round_open"
+    t.string  "word"
+    t.integer "players"
+    t.integer "user_id"
+  end
+
+  add_index "games", ["user_id"], name: "index_games_on_user_id", using: :btree
+
+  create_table "gamesessions", force: :cascade do |t|
     t.integer "user_id"
     t.integer "game_id"
     t.string  "word"
@@ -25,16 +36,8 @@ ActiveRecord::Schema.define(version: 20160109234158) do
     t.boolean "active"
   end
 
-  add_index "game_sessions", ["game_id"], name: "index_game_sessions_on_game_id", using: :btree
-  add_index "game_sessions", ["user_id"], name: "index_game_sessions_on_user_id", using: :btree
-
-  create_table "games", force: :cascade do |t|
-    t.string  "name"
-    t.string  "password"
-    t.integer "round_number"
-    t.boolean "round_open"
-    t.string  "word"
-  end
+  add_index "gamesessions", ["game_id"], name: "index_gamesessions_on_game_id", using: :btree
+  add_index "gamesessions", ["user_id"], name: "index_gamesessions_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "facebook_token"
@@ -47,6 +50,6 @@ ActiveRecord::Schema.define(version: 20160109234158) do
     t.string   "last_name"
   end
 
-  add_foreign_key "game_sessions", "games"
-  add_foreign_key "game_sessions", "users"
+  add_foreign_key "gamesessions", "games"
+  add_foreign_key "gamesessions", "users"
 end
