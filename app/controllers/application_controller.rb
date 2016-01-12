@@ -27,9 +27,6 @@ class ApplicationController < ActionController::Base
         redirect_to root_path invite: true, game_id: params[:id]
       end
     else
-      if current_user && params[:id] == nil
-        redirect_to "/users/#{current_user.id}"
-      end
       if !current_user
         flash[:alert] = "You must log in."
         redirect_to root_path
