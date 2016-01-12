@@ -4,7 +4,7 @@
     
     var number_players = <%= @game.players %>
     // create_player_circle(number_players)
-    var users = <%= raw @game.get_users.to_json %>
+    var users = <%= raw @gamesessions.to_json %>
     player_circle(number_players, users)
     function player_circle(no_players, users) {
       var x_center = $(".center_marker").position().left;
