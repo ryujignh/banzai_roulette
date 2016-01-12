@@ -44,6 +44,26 @@
       <a href="/auth/facebook" class="btn btn-primary">Create a new game</a>
     </div>
   </div>
+  <div class="giphy">
+  <script type="text/javascript">
+  <input type ="text" id="userInput" value="Submit your word!" />
+    var link = document.getElementByID('http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC');
+    var input = document.getElementByID('searchterm');
+    input.onchange = input.keyup = function() {
+      link.search = '&tag=' + encodeURIComponent(input.value);
+      link.firstChild.data = link.href;
+    };
+    // var api = "http://api.giphy.com/v1/gifs/random?";
+    // var api_key = "api_key=dc6zaTOxFJmzC";
+    // var query = "&tag=#{user.input}";
+
+    // var giphy = $.get(api + api_key + query);
+    // giphy.done(function(data) {
+    //   console.log(data);
+    // });
+
+  </script>
+</div>
   <%= render partial: 'invitation' %>
   <a href="/sign_out" class="btn btn-primary">Sign out</a>
 </div>
