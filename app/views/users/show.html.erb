@@ -1,22 +1,23 @@
 <div class="row">
   <div class="col-md-2">
     <h2><%= @user.first_name %> </h2>
-    <img src="http://graph.facebook.com/<%= @user.uid %>/picture?type=normal">
+    <img src="https://graph.facebook.com/<%= @user.uid %>/picture?type=normal">
   </div>
   <div class="col-md-5">
     <h2>Your games</h2>
     <div class="table-responsive">
       <table class="table">
         <thead>
-        <th>Name</th>
-        <th>No. Players</th>
+        <th>Game Owner</th>
+        <th>Your current word</th>
+
         <th>Action</th>
         </thead>
         <tbody>
-        <% @games.each do |game| %>
+        <% @gamesessions.each do |game| %>
           <tr>
-            <td><%= game.name %></td>
-            <td><%= game.players %></td>
+            <td><%= "#{game.first_name} #{game.last_name}"%></td>
+            <td><%= game.word %></td>
             <td><a href="/games/<%= game.id %>" class="btn btn-success">Enter Game</a></td>
           </tr>
         <% end %>
@@ -29,23 +30,51 @@
     <div class="table-responsive">
       <table class="table">
         <thead>
-        <th>Id</th>
+        <th>Game Id</th>
         <th>Action</th>
         </thead>
         <tbody>
+          <% @gameinvites.each do |i| %>
+            <td><%= i.game_id %></td>
+            <td><%= form_tag("/gamesessions/#{i.id}", method: :put) do %>
+              <%= hidden_field_tag :joined, true %>
+              <%= submit_tag 'Accept',:class => 'btn btn-success' %>
+              <%- end -%></td>
+            <td><%= form_tag("/gamesessions/#{i.id}", method: :put) do %>
+              <%= hidden_field_tag :joined, false %>
+              <%= submit_tag 'Ignore',:class => 'btn btn-primary' %>
+              <%- end -%></td>
+          </tr>
+          <% end %>
         </tbody>
       </table>
     </div>
   </div>
-  <div class="row">
-    <div class="col-md-2">
-      <h2>Create a new game</h2>
-      <div class="text-center">
-        <%= render 'form' %>
+  <div class="col-md-5">
+      <h2>Create a game</h2>
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+          <th>Game name</th>
+          <th>Number of players</th>
+          <th>Action</th>
+          </thead>
+          <tbody>
+            <tr>
+              <%= form_for Game.new do |f| %>
+                <td>
+                  <%= f.text_field "name" %>
+                </td>
+                <td>
+                  <%= f.text_field "players" %>
+                </td>
+                <td>
+                  <%= f.submit "Create!", :class => 'btn btn-success' %> 
+                </td>
+              <% end %>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
-    <%= render partial: 'invitation' %>
-  </div>
-
-
 </div>
