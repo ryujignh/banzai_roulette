@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20160109234158) do
     t.integer "wins"
     t.integer "loses"
     t.boolean "active"
+    t.boolean "joined"
   end
 
   add_index "gamesessions", ["game_id"], name: "index_gamesessions_on_game_id", using: :btree

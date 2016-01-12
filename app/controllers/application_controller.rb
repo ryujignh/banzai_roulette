@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
     if params[:invite] == "true"
       if current_user
         Gamesession.create(user_id: current_user.id, game_id: params[:id])
-        redirect_to "/games/#{params[:id]}"
+        redirect_to current_user
       else
         flash[:alert] = "You must log in."
         redirect_to root_path invite: true, game_id: params[:id]
@@ -35,10 +35,23 @@ class ApplicationController < ActionController::Base
   end
 
   def restrict_access_home
-    if current_user
-      redirect_to(current_user, :notice => "Message was successfully sent.")
+    if params[:invite] == "true"
+      if current_user
+        Gamesession.create(user_id: current_user.id, game_id: params[:id])
+        redirect_to current_user
+      else
+        flash[:alert] = "You must log in."
+        redirect_to root_path invite: true, game_id: params[:id]
+      end
+    else
+      if current_user
+        redirect_to(current_user, :notice => "Message was successfully sent.")
+      end
     end
   end
+
+
+
 
 end
 
