@@ -18,9 +18,19 @@ class ApplicationController < ActionController::Base
 
   protected
   def restrict_access
-    if !current_user
-      flash[:alert] = "You must log in."
-      redirect_to root_path
+    if params[:invite] == "true"
+      if current_user
+        Gamesession.create(user_id: current_user.id, game_id: params[:id])
+        redirect_to "/games/#{params[:id]}"
+      else
+        flash[:alert] = "You must log in."
+        redirect_to root_path invite: true, game_id: params[:id]
+      end
+    else
+      if !current_user
+        flash[:alert] = "You must log in."
+        redirect_to root_path
+      end
     end
   end
 
