@@ -8,16 +8,16 @@
     <div class="table-responsive">
       <table class="table">
         <thead>
-        <th>Name</th>
-        <th>No. Players</th>
+        <th>Game Owner</th>
+        <th>Your current word</th>
+
         <th>Action</th>
         </thead>
         <tbody>
-
-        <% @games.each do |game| %>
+        <% @gamesessions.each do |game| %>
           <tr>
-            <td><%= game.name %></td>
-            <td><%= game.players %></td>
+            <td><%= "#{game.first_name} #{game.last_name}"%></td>
+            <td><%= game.word %></td>
             <td><a href="/games/<%= game.id %>" class="btn btn-success">Enter Game</a></td>
           </tr>
         <% end %>
