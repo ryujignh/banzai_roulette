@@ -1,31 +1,9 @@
 <div id="player_circle">
   <p class="center_marker">center</p>
-<script type="text/javascript">
-  var number_players = <%= @game.players %>
-  player_circle(number_players)
-  function player_circle(no_players, players) {
-    var x_center = $(".center_marker").position().left;
-    var y_center = $(".center_marker").position().top;
-    var items = no_players;
-    var r = x_center/2
-    for(var i = 0; i < items; i++) {
-      var x = x_center + r * Math.cos(2 * Math.PI * i / items);
-      var y = y_center + r * Math.sin(2 * Math.PI * i / items);   
-      var player_outer_wrapper = $("<div/>",{"class":"player_outer_wrapper"});
-      $(player_outer_wrapper).css("top", y + "px").css("left", x + "px");;
-      var player_wrapper = $("<div/>",{"class":"player_wrapper"});
-      var player_caption = $("<p/>", {"text":'Join', "class":"player_caption"});
-      $(player_outer_wrapper).append(player_wrapper).append(player_caption);
-      $("#player_circle").append(player_outer_wrapper);
-    };
-  };
-
-  $(document).ready(function() {
-    
-  });  
-
-</script>
-      
+  <script type="text/javascript">
+    var number_players = <%= @game.players %>
+    create_player_circle(number_players)
+  </script>    
 </div>
 
 
