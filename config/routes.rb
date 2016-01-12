@@ -14,5 +14,6 @@ Rails.application.routes.draw do
   resources :games
   resources :top
   resources :gamesessions
+  resources :invites, only:[:create]
 
 end

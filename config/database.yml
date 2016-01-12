@@ -80,6 +80,4 @@ test:
 #
 production:
   <<: *default
-  database: banzai_roulette_production
-  username: banzai_roulette
-  password: <%= ENV['BANZAI_ROULETTE_DATABASE_PASSWORD'] %>
+  database: banzai_roulette_development

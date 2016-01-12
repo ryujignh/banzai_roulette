@@ -21,6 +21,7 @@ class GamesController < ApplicationController
 
     if @game.save
       redirect_to game_path(@game.id), notice: "#{@game.round_number} was submitted successfully!"
+      Gamesession.create(user_id: current_user.id, game_id: @game.id)
     else
       render :new
     end
