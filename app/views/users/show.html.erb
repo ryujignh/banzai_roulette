@@ -42,7 +42,7 @@
               <%- end -%></td>
             <td><%= form_tag("/gamesessions/#{i.id}", method: :put) do %>
               <%= hidden_field_tag :joined, false %>
-              <%= submit_tag 'Ignore',:class => 'btn btn-primary' %>
+              <%= submit_tag 'Deny',:class => 'btn btn-primary' %>
               <%- end -%></td>
           </tr>
           <% end %>
