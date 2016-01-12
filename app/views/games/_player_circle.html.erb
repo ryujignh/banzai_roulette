@@ -1,15 +1,11 @@
 <div id="player_circle">
   <p class="center_marker">center</p>
   <script type="text/javascript">
-
+    
     var number_players = <%= @game.players %>
-    create_player_circle(number_players)
-  
-
-    var number_players =
-    <%= @game.players %>
-    var users = <%= raw @game.get_users.to_json %>
-        player_circle(number_players, users)
+    // create_player_circle(number_players)
+    var users = <%= raw @players.to_json %>
+    player_circle(number_players, users)
     function player_circle(no_players, users) {
       var x_center = $(".center_marker").position().left;
       var y_center = $(".center_marker").position().top;
@@ -23,24 +19,23 @@
         var y = y_center + r * Math.sin(2 * Math.PI * i / items);
         var player_outer_wrapper = $("<div/>", {"class": "player_outer_wrapper"});
         if (user) {
-          player_outer_wrapper.text(user.first_name)
+          var player_caption = $("<p/>", {"text": user.first_name, "class": "player_caption"});
+          var player_img = $("<img/>", {"src":"https://graph.facebook.com/" + user.uid + "/picture?type=large", "class":"player_img"});
+        }
+        else {
+          var player_caption = $("<p/>", {"text": "Empty seat", "class": "player_caption"});
+          var player_img = $("<img/>", {"src":"https://www.irononsticker.com/images/2013/09/14/NUDE%20GIRLS%20SILHOUETTE%20T%20SHIRT%20IRON%20ON%20TRANSFER.png", "class":"player_img"});
         }
         $(player_outer_wrapper).css("top", y + "px").css("left", x + "px");
         ;
         var player_wrapper = $("<div/>", {"class": "player_wrapper"});
-        var player_caption = $("<p/>", {"text": 'Join', "class": "player_caption"});
+        $(player_wrapper).append(player_img)
         $(player_outer_wrapper).append(player_wrapper).append(player_caption);
         $("#player_circle").append(player_outer_wrapper);
         user = undefined
       }
       ;
-    }
-    ;
-
-    $(document).ready(function () {
-
-    });
-
+    };
   </script>
 
 

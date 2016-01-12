@@ -8,16 +8,15 @@
     <div class="table-responsive">
       <table class="table">
         <thead>
+        <th>Game Name</th>
         <th>Game Owner</th>
-        <th>Your current word</th>
-
         <th>Action</th>
         </thead>
         <tbody>
         <% @gamesessions.each do |game| %>
           <tr>
             <td><%= "#{game.first_name} #{game.last_name}"%></td>
-            <td><%= game.word %></td>
+            <td><%= game.name %></td>
             <td><a href="/games/<%= game.id %>" class="btn btn-success">Enter Game</a></td>
           </tr>
         <% end %>
@@ -42,7 +41,7 @@
               <%- end -%></td>
             <td><%= form_tag("/gamesessions/#{i.id}", method: :put) do %>
               <%= hidden_field_tag :joined, false %>
-              <%= submit_tag 'Ignore',:class => 'btn btn-primary' %>
+              <%= submit_tag 'Deny',:class => 'btn btn-primary' %>
               <%- end -%></td>
           </tr>
           <% end %>
