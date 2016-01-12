@@ -5,7 +5,7 @@
     <ul class="nav navbar-nav navbar-right">
       <% if current_user %>
         <div class="fb_logged_in">
-          <li><%= image_tag("http://graph.facebook.com/#{current_user.uid}/picture?type=normal", width: '50', height: '50', class: 'img-circle') %>
+          <li><%= image_tag("https://graph.facebook.com/#{current_user.uid}/picture?type=normal", width: '50', height: '50', class: 'img-circle') %>
             <%= link_to "Sign Out", '/sign_out', method: :get %>
           </li>
         </div>

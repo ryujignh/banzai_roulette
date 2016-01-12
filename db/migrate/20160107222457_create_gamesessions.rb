@@ -7,6 +7,7 @@ class CreateGamesessions < ActiveRecord::Migration
       t.integer :wins
       t.integer :loses
       t.boolean :active
+      t.boolean :joined
     end
     add_foreign_key :gamesessions, :users
     add_foreign_key :gamesessions, :games

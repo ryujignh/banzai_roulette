@@ -32,3 +32,15 @@ describe Giphy::Configuration do
     end
   end
 end
+
+  <div class="giphy">
+  <script type="text/javascript">
+  <input type ="text" id="userInput" value="Submit your word!" />
+    var link = document.getElementByID('http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC');
+    var input = document.getElementByID('searchterm');
+    input.onchange = input.keyup = function() {
+      link.search = '&tag=' + encodeURIComponent(input.value);
+      link.firstChild.data = link.href;
+    };
+  </script>
+</div>

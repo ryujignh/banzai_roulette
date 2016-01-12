@@ -10,9 +10,6 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
-//= require jquery_ujs
-//= require turbolinks
 //= require_tree .
 
 function create_player_circle(no_players) {
@@ -35,10 +32,23 @@ function create_player_circle(no_players) {
 function load_player_circle(uid,id,current_user_id, player_no) {
   var player_outer_wrapper  = $("#" + player_no)
   var player_wrapper = $(player_outer_wrapper).find(".player_wrapper"); 
-  var player_img = $("<img/>", {"src":"http://graph.facebook.com/" + uid + "/picture?type=large", "class":"player_img"});
+  var player_img = $("<img/>", {"src":"https://graph.facebook.com/" + uid + "/picture?type=large", "class":"player_img"});
   $(player_wrapper).append(player_img)
 
 };
+
+  $(window).bind('resize', function(e)
+  {
+    console.log('window resized..');
+    $( ".player_outer_wrapper" ).remove();
+    player_circle()
+  });
+
+  //setTimeout(function () {
+  //  window.location = window.location
+  //}, 3000);
+
+
 
 $(document).ready(function() {
   
