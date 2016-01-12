@@ -1,0 +1,21 @@
+<div class="container mainbody">
+  <p>This app will ruin your Facebook wall!</p>
+  <div class="playing-cricle">
+    <%= render 'player_circle' %>
+  </div>
+  <div>
+    <%= link_to 'Back to your profile', current_user%>
+       <% @players.each_with_index do |i, index| %> 
+        <script type="text/javascript">
+        var uid = <%= i.uid %>
+        var id = <%= i.id %>
+        var current_user_id = <%= current_user.id %>
+        var player_no = <%= index %>
+        load_player_circle(uid,id,current_user_id,player_no)
+        </script>   
+      <% end %> 
+    
+ 
+  </div>
+</div>
+

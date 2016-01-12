@@ -1,6 +1,6 @@
-class CreateGameSessions < ActiveRecord::Migration
+class CreateGamesessions < ActiveRecord::Migration
   def change
-    create_table :game_sessions do |t|
+    create_table :gamesessions do |t|
       t.references :user, index: true
       t.references :game, index: true
       t.string :word
@@ -8,7 +8,7 @@ class CreateGameSessions < ActiveRecord::Migration
       t.integer :loses
       t.boolean :active
     end
-    add_foreign_key :game_sessions, :users
-    add_foreign_key :game_sessions, :games
+    add_foreign_key :gamesessions, :users
+    add_foreign_key :gamesessions, :games
   end
 end

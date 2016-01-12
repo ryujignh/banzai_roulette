@@ -1,20 +1,25 @@
 <div class="row">
   <div class="col-md-2">
     <h2><%= @user.first_name %> </h2>
+    <img src="http://graph.facebook.com/<%= @user.uid %>/picture?type=normal">
   </div>
   <div class="col-md-5">
-    <h2>Active games</h2>
+    <h2>Your games</h2>
     <div class="table-responsive">
       <table class="table">
         <thead>
-        <th>Id</th>
+        <th>Name</th>
+        <th>No. Players</th>
         <th>Action</th>
         </thead>
         <tbody>
-        <tr>
-          <td>a</td>
-          <td><a href="#" class="btn btn-success">Enter Game</a></td>
-        </tr>
+        <% @games.each do |game| %>
+          <tr>
+            <td><%= game.name %></td>
+            <td><%= game.players %></td>
+            <td><a href="/games/<%= game.id %>" class="btn btn-success">Enter Game</a></td>
+          </tr>
+        <% end %>
         </tbody>
       </table>
     </div>
@@ -28,22 +33,20 @@
         <th>Action</th>
         </thead>
         <tbody>
-        <tr>
-          <td>a</td>
-          <td><a href="#" class="btn btn-success">Join Game</a></td>
-        </tr>
         </tbody>
       </table>
     </div>
   </div>
-</div>
-<div class="row">
-  <div class="col-md-12">
-    <div class="text-center">
-      <%= render 'form' %>
-      <a href="/auth/facebook" class="btn btn-primary">Create a new game</a>
+  <div class="row">
+    <div class="col-md-2">
+      <h2>Create a new game</h2>
+      <div class="text-center">
+        <%= render 'form' %>
+      </div>
     </div>
+    <%= render partial: 'invitation' %>
   </div>
+<<<<<<< HEAD
   <div class="giphy">
   <script type="text/javascript">
   <input type ="text" id="userInput" value="Submit your word!" />
@@ -66,4 +69,8 @@
 </div>
   <%= render partial: 'invitation' %>
   <a href="/sign_out" class="btn btn-primary">Sign out</a>
+=======
+
+
+>>>>>>> d8163b89cd8a2cae57cecd5e35cfd7ceedf362c3
 </div>
