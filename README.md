@@ -1,13 +1,10 @@
 # banzai_roulette
 Random gif generator using Giphy api
 
-# To start server
-$ rails s
-and
-$ ngrok http -subdomain=banzairoulette 3000
-access http://banzairoulette.ngrok.io
+To start server
+bundle install first (new gem "thin" required)
+$ thin start --ssl -p 3000 Access to https://localhost:3000
 
-# Before start server
-##Please install ngrok
-https://ngrok.com/
+!!!When starting a server!!!
 
+Ignore the privacy warning from chrome. Continue to the homepage by clicking "advanced" in left bottom corner of the warning message, and click "continue".
