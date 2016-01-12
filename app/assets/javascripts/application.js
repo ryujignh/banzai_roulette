@@ -10,9 +10,6 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
-//= require jquery_ujs
-//= require turbolinks
 //= require_tree .
 
 $(document).ready(function() {
@@ -27,7 +24,6 @@ $(document).ready(function() {
   //   $(this).find('.player_caption').css("display", "none");
   // });
 
-
   $(window).bind('resize', function(e)
   {
     console.log('window resized..');
@@ -35,5 +31,8 @@ $(document).ready(function() {
     player_circle()
   });
 
+  //setTimeout(function () {
+  //  window.location = window.location
+  //}, 3000);
 });
 

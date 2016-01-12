@@ -1,22 +1,13 @@
 class Gamesession < ActiveRecord::Base
-belongs_to :user
-belongs_to :game
-after_initialize :defaults
+  belongs_to :user
+  belongs_to :game
+  after_initialize :defaults
 
-def new
+  def defaults
+    unless persisted?
 
-end
-
-def create
-
-end
-
-
-def defaults
-   unless persisted?
-
+    end
   end
-end
 
 
 end
