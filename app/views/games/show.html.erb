@@ -4,18 +4,6 @@
   </div>
   <div>
     <%= link_to 'Back to your profile', current_user%>
-
-       <% @players.each_with_index do |i, index| %> 
-        <script type="text/javascript">
-        var uid = <%= i.uid %>
-        var id = <%= i.id %>
-        var current_user_id = <%= current_user.id %>
-        var player_no = <%= index %>
-        load_player_circle(uid,id,current_user_id,player_no)
-        </script>   
-      <% end %> 
-    
-
     <%= form_tag invites_path, method: :post do %>
     <%= text_field_tag :email, nil, placeholder: "User email" %>
     <%= hidden_field_tag :game_id, @game.id %>
