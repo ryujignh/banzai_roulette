@@ -17,7 +17,7 @@ class GamesessionsController < ApplicationController
     @gamesession = Gamesession.new(gamesession_params)
 
     if @gamesession.save
-      redirect_to game_gamesession_path, notice: "#{@movie.title} was submitted successfully!"
+      redirect_to game_gamesession_path
     else
       render :new
     end
