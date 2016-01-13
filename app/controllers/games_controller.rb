@@ -31,12 +31,19 @@ class GamesController < ApplicationController
 
   def update
     @game = Game.find(params[:id])
-    if params[:word]
+    if params[:word] && params[:round_open] 
+      if @game.update_attributes(word: params[:word], round_open: params[:round_open])
+        redirect_to("/games/#{params[:id]}")
+      end
+    elsif params[:word]
       if @game.update_attribute(:word, params[:word])
         redirect_to("/games/#{params[:id]}")
       end
+    elsif params[:round_open]
+      if @game.update_attribute(:round_open, params[:round_open])
+        redirect_to("/games/#{params[:id]}")
+      end
     end
-
   end
 
  def get_giphy_url
