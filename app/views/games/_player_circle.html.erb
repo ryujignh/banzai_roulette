@@ -45,6 +45,14 @@
     <%= text_field_tag :word%>
     <%= submit_tag 'Enter your word!',:class => 'btn btn-success' %>
   <% end %>
+    <script type="text/javascript">
+    $(function () {
+      $('#post_giphy').click(function() {
+        var url = "http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=";
+        url += $('#word').val();
+      });
+    });
+  </script>
 </div>
 
 <div>
