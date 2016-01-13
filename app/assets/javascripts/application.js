@@ -50,8 +50,4 @@
 
 
 $(document).ready(function () {
-
-  $(function () {
-
-  });
 });

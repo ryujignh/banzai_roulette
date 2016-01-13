@@ -44,11 +44,10 @@ class GamesController < ApplicationController
    render json: @word
  end
 
- def post_giphy
+ def post_giphy(giphy_url)
    u = current_user
-   u.facebook.put_wall_post("I lost a game!", {"link" => "http://gph.is/1c2ZNhJ"})
-   binding.pry
-   redirect_to "/games/#{@game.id}"
+   u.facebook.put_wall_post("I lost a game!", {"link" => giphy_url})
+   redirect_to users_path
  end
 
 
