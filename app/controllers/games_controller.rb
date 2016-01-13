@@ -46,28 +46,6 @@ class GamesController < ApplicationController
     end
   end
 
- def get_giphy_url
-   @word = Game.find(params[:id]).word
-   render json: @word
- end
-
- def post_giphy(giphy_url)
-   u = current_user
-   u.facebook.put_wall_post("I lost a game!", {"link" => giphy_url})
-   redirect_to users_path
- end
-
- def giphy
-   require 'net/http'
-   require 'json'
-   var url = "http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=";
-   resp = Net::HTTP.get_response(URI.parse(url))
-   buffer = resp.body
-   result = JSON.parse(buffer)
-   puts result
- end
-
-
   protected
 
   def game_params

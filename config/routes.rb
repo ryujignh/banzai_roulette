@@ -24,5 +24,6 @@ Rails.application.routes.draw do
   resources :words, only: [:index, :create, :show]
   resources :top
   resources :invites, only: [:create]
+  resources :giphys
 
 end
