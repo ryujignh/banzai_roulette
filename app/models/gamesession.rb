@@ -5,9 +5,10 @@ class Gamesession < ActiveRecord::Base
 
   def defaults
     unless persisted?
-     
+
     end
   end
+
 
 
 end

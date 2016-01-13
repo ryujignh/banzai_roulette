@@ -1,7 +1,7 @@
 <div id="player_circle">
-  <p class="center_marker">center</p>
+  <p class="center_marker"><%= @word %></p>
   <script type="text/javascript">
-    
+
     var number_players = <%= @game.players %>
     // create_player_circle(number_players)
     var users = <%= raw @players.to_json %>
@@ -35,8 +35,7 @@
         $(player_outer_wrapper).append(player_wrapper).append(player_caption).append(player_word);
         $("#player_circle").append(player_outer_wrapper);
         user = undefined
-      }
-      ;
+      };
     };
   </script>
 

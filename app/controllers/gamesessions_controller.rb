@@ -2,6 +2,8 @@ class GamesessionsController < ApplicationController
  before_filter :restrict_access
 
   def index
+    @gamesessions = Gamesession.all
+
   end
 
   def new
