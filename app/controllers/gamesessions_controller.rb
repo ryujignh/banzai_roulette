@@ -25,15 +25,25 @@ class GamesessionsController < ApplicationController
 
   def update
     @gamesession = Gamesession.find(params[:id])
-    if @gamesession.update_attribute(:joined, params[:joined])
-      if params[:joined] === 'false'
-        redirect_to current_user
-      else
+    puts "#{params[:word]}test2"
+    if params[:joined]
+      if @gamesession.update_attribute(:joined, params[:joined])
+        if params[:joined] === 'false'
+          redirect_to current_user
+        else
+          redirect_to("/games/#{@gamesession.game_id}")
+        end
+      end
+    end
+
+    if params[:word]
+      puts "#{params[:word]}test"
+      if @gamesession.update_attribute(:word, params[:word])
         redirect_to("/games/#{@gamesession.game_id}")
       end
-    else
-    
     end
+
+
   end
 
 
