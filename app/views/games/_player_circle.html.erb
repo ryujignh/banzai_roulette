@@ -1,23 +1,18 @@
 <div id="player_circle">
   <div class="center_marker">
     <p id="center_word"></p>
+    <div id="post_giphy">
+      <%= form_tag("/games/#{@game.id}", method: :put) do %>
+        <%= hidden_field_tag :round_open, 1 %>
+        <%= submit_tag 'I lost', :class => 'btn btn-primary loser'%>
+      <% end %>
+    </div>
   </div>
 <div>
   <%= form_tag("/gamesessions/#{@current_user_session.id}", method: :put) do %>
     <%= text_field_tag :word, nil, class: 'wordCreate'%>
     <%= submit_tag 'Enter your word!',:class => 'btn btn-success enter_word' %>
   <% end %>
-
-   <button type="button" class="btn btn-primary" id="post_giphy">Post to your Facebook wall!</button>
-
-  <div>
-    <%= form_tag("/games/#{@game.id}", method: :put) do %>
-      <%= hidden_field_tag :round_open, 1 %>
-      <%= submit_tag 'I lost', :class => 'btn btn-primary loser'%>
-    <% end %>
-  </div>
-
-
 
 </div>
   <div>
@@ -89,7 +84,7 @@
       var result = JSON.parse(xhr.responseText).data.image_original_url;
       $.post('/giphys', {gifurl: result})
           .success(function () {
-            alert("posted!");
+            alert("Giphy posted! Please check your Facebook wall:)");
           });
     });
   });
