@@ -1,5 +1,5 @@
 <div id="player_circle">
-  <p class="center_marker"><%= @word %></p>
+  <p class="center_marker"></p>
   <script type="text/javascript">
 
     var number_players = <%= @game.players %>
@@ -12,7 +12,7 @@
       var items = no_players;
       var r = x_center / 2
       for (var i = 0; i < items; i++) {
-        if (users.length >= i + 1) {
+        if (users.length >]ok = i + 1) {
           var user = users[i]
         }
         var x = x_center + r * Math.cos(2 * Math.PI * i / items);
@@ -44,16 +44,25 @@
     <%= text_field_tag :word%>
     <%= submit_tag 'Enter your word!',:class => 'btn btn-success' %>
   <% end %>
+
+  <%= button_to "Post Giphy!", { :controller => "games", :action => "post_giphy"}, {class: 'btn btn-success'} %>
+
+
 </div>
 
-<div>
-<%= form_tag("/games/#{@game.id}", method: :put) do %>
-              <%= hidden_field_tag :word, @word %>
-              <%= submit_tag 'Start round',:class => 'btn btn-primary' %>
-            
-    
-              <% end %>
-</div>
+  <div>
+    <%= form_tag("/games/#{@game.id}", method: :put) do %>
+      <%= hidden_field_tag :word, @word %>
+      <%= submit_tag 'Start round', :class => 'btn btn-primary' %>
+      <script>
+        var word = <%= @word %>
+            name(word)
+        function name(word) {
+        $(".center_marker").text(word);
+        };
+      </script>
+    <% end %>
+  </div>
 
 
 </div>

@@ -33,12 +33,17 @@ class GamesController < ApplicationController
     @game = Game.find(params[:id])
     if params[:word]
       if @game.update_attribute(:word, params[:word])
-      
         redirect_to("/games/#{params[:id]}")
       end
     end
 
   end
+
+ def post_giphy
+   u = current_user
+   u.facebook.put_wall_post("I lost a game!", {"link" => "http://gph.is/1c2ZNhJ"})
+   redirect_to games_path
+ end
 
 
   protected
