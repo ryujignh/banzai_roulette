@@ -44,12 +44,34 @@
 //     player_circle()
 //   });
 
-  //setTimeout(function () {
-  //  window.location = window.location
-  //}, 3000);
+//setTimeout(function () {
+//  window.location = window.location
+//}, 3000);
 
 
+// $(document).ready(function () {
 
-$(document).ready(function() {
-  
-});  
+
+// $('#post_giphy').on("click", function() {
+//   var word = 'test'
+//   var url = "//api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=";
+//   var gif_url = (url + word);
+//   var result = $.getJSON(gif_url);
+//   var giphy_url = result.done(function(data) { return (data.data.image_original_url); });
+
+
+//   callExecuter(giphy_url)
+//   function callExecuter(giphy_url){
+//       $.ajax({
+//         type:"PUT",
+//         url:"/games/post_giphy?url='" + giphy_url + "'",
+//         success:function(){
+//         //I assume you want to do something on controller action execution success?
+//         console.log('success!');
+//         }
+//       });
+//     }
+//   });
+// });
+
+

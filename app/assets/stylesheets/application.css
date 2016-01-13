@@ -14,6 +14,10 @@
  *= require_self
  */
 
+body {
+font-family: 'Open Sans', sans-serif;
+}
+
 .mainbody {
     height: 100%;
 }
@@ -25,17 +29,16 @@
 }
 
 .player_outer_wrapper{
-    width: 120px;
-  height: 120px;
-  border-radius: 50%;
+
+/*  border: solid black 1px;*/
  
 }
 
 .player_wrapper {
     display: inline-block;
-    border:thin solid gray;
+   /* border:thin solid gray;*/
     margin: 0px auto 10px auto;
-    border-radius: 50%;
+
 
   }
 
@@ -48,8 +51,8 @@
 
 .player_caption{
 /*  display: none;*/
-  position: absolute;
-  top: 30%;
+
+ 
   left:0;
   right:0;
   margin-left:auto;
@@ -67,6 +70,12 @@ position:relative;
   position:absolute;
   left: 50%;
   top: 50%;
+  
+}
+
+#center_word{
+  font-size: 6em;
+   transform: translate(-50%, -50%);
 }
 
 #giphy-banner{

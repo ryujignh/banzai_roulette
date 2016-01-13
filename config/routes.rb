@@ -10,13 +10,16 @@ Rails.application.routes.draw do
   get 'auth/:provider/callback', to: "sessions#create"
   get 'sign_out', to: "sessions#destroy", as: 'sign_out'
   get 'post_to_wall', to: "users#post_to_wall"
+  # get '/contacts' do
+  #   Contact.all.to_json
+  # end
+
+
   # get 'auth/facebook', as: "auth_provider"
   # get 'auth/facebook/callback', to: 'users#login'
 
   resources :users
-  resources :games do
-    resources :giphies
-  end
+  resources :games, only: [:index, :create, :show, :update, :post_giphy]
   resources :gamesessions
   resources :words, only: [:index, :create, :show]
   resources :top
