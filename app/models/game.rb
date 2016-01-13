@@ -15,9 +15,6 @@ class Game < ActiveRecord::Base
     gamesessions.map{ |gamesession| gamesession.user }
   end
 
-  def pick_word
-
-  end
 
 
 end

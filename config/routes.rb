@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   post 'top/authorize'
   post '/', controller: :top, action: :index
+  post "games/post_giphy"
 
   get 'auth/:provider/callback', to: "sessions#create"
   get 'sign_out', to: "sessions#destroy", as: 'sign_out'
@@ -13,16 +14,12 @@ Rails.application.routes.draw do
   # get 'auth/facebook/callback', to: 'users#login'
 
   resources :users
-
-  resources :games
-
+  resources :games do
+    resources :giphies
+  end
   resources :gamesessions
-
   resources :words, only: [:index, :create, :show]
-
-
   resources :top
-
   resources :invites, only: [:create]
 
 end
