@@ -1,0 +1,13 @@
+<div class="giphy">
+  <input type="text" id="userInput" />
+  <input type="button" id="submit" value="submit" />
+  <script type="text/javascript">
+  $(function () {
+    $('#submit').click(function() {
+      var url = "http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=";
+      url += $('#userInput').val();
+    });
+  });
+
+  </script>
+</div>
