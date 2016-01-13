@@ -5,16 +5,23 @@
 <div>
   <%= form_tag("/gamesessions/#{@current_user_session.id}", method: :put) do %>
     <%= text_field_tag :word, nil, class: 'wordCreate'%>
-    <%= submit_tag 'Enter your word!',:class => 'btn btn-success' %>
+    <%= submit_tag 'Enter your word!',:class => 'btn btn-success enter_word' %>
   <% end %>
 
-  <button type="button" class="btn btn-primary" id="post_giphy">Post to your Facebook wall!</button>
+  <!-- <button type="button" class="btn btn-primary" id="post_giphy">Post to your Facebook wall!</button> -->
+  <div>
+    <%= form_tag("/games/#{@game.id}", method: :put) do %>
+      <%= hidden_field_tag :round_open, 1 %>
+      <%= submit_tag 'I lost', :class => 'btn btn-primary loser'%>
+    <% end %>
+  </div>
 
 </div>
   <div>
     <%= form_tag("/games/#{@game.id}", method: :put) do %>
       <%= hidden_field_tag :word, @word %>
-      <%= submit_tag 'Start round', :class => 'btn btn-primary test'%>
+      <%= hidden_field_tag :round_open, 0 %>
+      <%= submit_tag 'Start round', :class => 'btn btn-primary start_game'%>
     <% end %>
   </div>
 
@@ -57,9 +64,16 @@
       user = undefined
     }
       if (game.round_open == 1){
-        $("#center_word").text(game_word)}
+        $("#center_word").text()
+         $('.enter_word').attr("disabled", false)
+          $('.start_game').attr("disabled", false)
+          $('.loser').attr("disabled", true)}
       else {
-        $("#center_word").text()}
+        $("#center_word").text(game_word)
+         $('.enter_word').attr("disabled", true)
+          $('.start_game').attr("disabled", true)
+          $('.loser').attr("disabled", false)}
+        
       
   };
 
