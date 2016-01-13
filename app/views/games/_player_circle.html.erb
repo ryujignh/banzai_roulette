@@ -62,9 +62,11 @@
         $('#post_giphy').on("click", function() {
           var url = "//api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=";
           var gif_url = (url + word);
-          var result = $.getJSON(gif_url)
-          console.log(gif_url);
-          console.log(result);
+          var xhr = $.get(gif_url);
+          xhr.done(function (data) {
+            var data = JSON.parse(xhr.responseText).data.image_original_url;
+            console.log(data);
+          });
         });
       </script>
     <% end %>

@@ -50,6 +50,16 @@ class GamesController < ApplicationController
    redirect_to users_path
  end
 
+ def giphy
+   require 'net/http'
+   require 'json'
+   var url = "http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=";
+   resp = Net::HTTP.get_response(URI.parse(url))
+   buffer = resp.body
+   result = JSON.parse(buffer)
+   puts result
+ end
+
 
   protected
 
