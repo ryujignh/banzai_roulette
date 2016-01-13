@@ -1,7 +1,7 @@
 <div id="player_circle">
-  <p class="center_marker"></p>
+  <p class="center_marker">center</p>
   <script type="text/javascript">
-
+    
     var number_players = <%= @game.players %>
     // create_player_circle(number_players)
     var users = <%= raw @players.to_json %>
@@ -12,7 +12,7 @@
       var items = no_players;
       var r = x_center / 2
       for (var i = 0; i < items; i++) {
-        if (users.length >]ok = i + 1) {
+        if (users.length >= i + 1) {
           var user = users[i]
         }
         var x = x_center + r * Math.cos(2 * Math.PI * i / items);
@@ -35,21 +35,20 @@
         $(player_outer_wrapper).append(player_wrapper).append(player_caption).append(player_word);
         $("#player_circle").append(player_outer_wrapper);
         user = undefined
-      };
+      }
+      ;
     };
   </script>
 
 <div>
   <%= form_tag("/gamesessions/#{@current_user_session.id}", method: :put) do %>
-    <%= text_field_tag :word%>
+    <%= text_field_tag :word, nil, class: 'wordCreate'%>
     <%= submit_tag 'Enter your word!',:class => 'btn btn-success' %>
   <% end %>
 
-  <%= button_to "Post Giphy!", { :controller => "games", :action => "post_giphy"}, {class: 'btn btn-success'} %>
-
+  <%= button_to "Post Giphy!", { :controller => "games", :action => "post_giphy"}, {class: 'btn btn-success', id: 'post_giphy'} %>
 
 </div>
-
   <div>
     <%= form_tag("/games/#{@game.id}", method: :put) do %>
       <%= hidden_field_tag :word, @word %>
@@ -60,9 +59,19 @@
         function name(word) {
         $(".center_marker").text(word);
         };
+
+        $('#post_giphy').on(click, function () {
+          alert("clicked");
+          var url = "http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=";
+          console.log(url += word)
+        });
       </script>
     <% end %>
   </div>
+
+  <script>
+
+  </script>
 
 
 </div>

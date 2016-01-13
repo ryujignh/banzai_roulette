@@ -39,10 +39,16 @@ class GamesController < ApplicationController
 
   end
 
+ def get_giphy_url
+   @word = Game.find(params[:id]).word
+   render json: @word
+ end
+
  def post_giphy
    u = current_user
    u.facebook.put_wall_post("I lost a game!", {"link" => "http://gph.is/1c2ZNhJ"})
-   redirect_to games_path
+   binding.pry
+   redirect_to "/games/#{@game.id}"
  end
 
 

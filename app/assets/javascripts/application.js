@@ -44,12 +44,14 @@
 //     player_circle()
 //   });
 
-  //setTimeout(function () {
-  //  window.location = window.location
-  //}, 3000);
+//setTimeout(function () {
+//  window.location = window.location
+//}, 3000);
 
 
+$(document).ready(function () {
 
-$(document).ready(function() {
-  
-});  
+  $(function () {
+
+  });
+});
