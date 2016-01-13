@@ -1,45 +1,7 @@
 <div id="player_circle">
-  <p class="center_marker">center</p>
-  <script type="text/javascript">
-    
-    var number_players = <%= @game.players %>
-    // create_player_circle(number_players)
-    var users = <%= raw @players.to_json %>
-    player_circle(number_players, users)
-    function player_circle(no_players, users) {
-      var x_center = $(".center_marker").position().left;
-      var y_center = $(".center_marker").position().top;
-      var items = no_players;
-      var r = x_center / 2
-      for (var i = 0; i < items; i++) {
-        if (users.length >= i + 1) {
-          var user = users[i]
-        }
-        var x = x_center + r * Math.cos(2 * Math.PI * i / items);
-        var y = y_center + r * Math.sin(2 * Math.PI * i / items);
-        var player_outer_wrapper = $("<div/>", {"class": "player_outer_wrapper"});
-        if (user) {
-          var player_caption = $("<p/>", {"text": user.first_name, "class": "player_caption"});
-          var player_word = $("<p/>", {"text": user.word, "class": ""});
-          var player_img = $("<img/>", {"src":"https://graph.facebook.com/" + user.uid + "/picture?type=large", "class":"player_img"});
-        }
-        else {
-          var player_caption = $("<p/>", {"text": "Empty seat", "class": "player_caption"});
-          var player_img = $("<img/>", {"src":"https://www.irononsticker.com/images/2013/09/14/NUDE%20GIRLS%20SILHOUETTE%20T%20SHIRT%20IRON%20ON%20TRANSFER.png", "class":"player_img"});
-          var player_word = ''
-        }
-        $(player_outer_wrapper).css("top", y + "px").css("left", x + "px");
-        ;
-        var player_wrapper = $("<div/>", {"class": "player_wrapper"});
-        $(player_wrapper).append(player_img)
-        $(player_outer_wrapper).append(player_wrapper).append(player_caption).append(player_word);
-        $("#player_circle").append(player_outer_wrapper);
-        user = undefined
-      }
-      ;
-    };
-  </script>
-
+  <div class="center_marker">
+    <p id="center_word"></p>
+  </div>
 <div>
   <%= form_tag("/gamesessions/#{@current_user_session.id}", method: :put) do %>
     <%= text_field_tag :word, nil, class: 'wordCreate'%>
@@ -52,29 +14,70 @@
   <div>
     <%= form_tag("/games/#{@game.id}", method: :put) do %>
       <%= hidden_field_tag :word, @word %>
-      <%= submit_tag 'Start round', :class => 'btn btn-primary' %>
-      <script>
-        var word = "<%= @word %>"
-        name(word)
-        function name(word) {
-          $(".center_marker").text(word);
-        }
-        $('#post_giphy').on("click", function() {
-          var url = "//api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=";
-          var gif_url = (url + word);
-          var xhr = $.get(gif_url);
-          xhr.done(function (data) {
-            var data = JSON.parse(xhr.responseText).data.image_original_url;
-            console.log(data);
-          });
-        });
-      </script>
+      <%= submit_tag 'Start round', :class => 'btn btn-primary test'%>
     <% end %>
   </div>
 
-  <script>
+<script type="text/javascript">
+  var game_word = "<%= @word%>"
+  var number_players = <%= @game.players %>
+  var users = <%= raw @players.to_json %>
+  var game = <%= raw @game.to_json %>
+  player_circle(number_players, users, game_word, game)
+  function player_circle(no_players, users, game_word, game) {
+    var game = game
+    var game_word = game_word
+    var x_center = $(".center_marker").position().left;
+    var y_center = $(".center_marker").position().top;
+    var items = no_players;
+    var r = x_center / 2
+    for (var i = 0; i < items; i++) {
+      if (users.length >= i + 1) {
+        var user = users[i]
+      }
+      var x = x_center + r * Math.cos(2 * Math.PI * i / items);
+      var y = y_center + r * Math.sin(2 * Math.PI * i / items);
+      var player_outer_wrapper = $("<div/>", {"class": "player_outer_wrapper"});
+      if (user) {
+        var player_caption = $("<p/>", {"text": user.first_name, "class": "player_caption"});
+        var player_word = $("<p/>", {"text": "Your word:" + user.word, "class": ""});
+        var player_img = $("<img/>", {"src":"https://graph.facebook.com/" + user.uid + "/picture?type=large", "class":"player_img"});
+      }
+      else {
+        var player_caption = $("<p/>", {"text": "Empty seat", "class": "player_caption"});
+        var player_img = $("<img/>", {"src":"https://www.irononsticker.com/images/2013/09/14/NUDE%20GIRLS%20SILHOUETTE%20T%20SHIRT%20IRON%20ON%20TRANSFER.png", "class":"player_img"});
+        var player_word = ''
+      }
+      $(player_outer_wrapper).css("top", y + "px").css("left", x + "px");
+      ;
+      var player_wrapper = $("<div/>", {"class": "player_wrapper"});
+      $(player_wrapper).append(player_caption).append(player_img).append(player_word)
+      $(player_outer_wrapper).append(player_wrapper);
+      $("#player_circle").append(player_outer_wrapper);
+      user = undefined
+    }
+      if (game.round_open == 1){
+        $("#center_word").text(game_word)}
+      else {
+        $("#center_word").text()}
 
-  </script>
+  };
+
+  var word = "<%= @word %>"
+  $('#post_giphy').on("click", function () {
+    var url = "//api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=";
+    var gif_url = (url + word);
+    var xhr = $.get(gif_url);
+    xhr.done(function (data) {
+      var data = JSON.parse(xhr.responseText).data.image_original_url;
+      console.log(data);
+      return data
+    });
+  });
+
+
+</script>
+
 
 
 </div>
