@@ -15,7 +15,7 @@ class GamesController < ApplicationController
     .joins("LEFT OUTER JOIN gamesessions ON users.id = gamesessions.user_id")
     .where("gamesessions.id IN (select gamesessions.id from gamesessions where game_id = #{@game.id} AND gamesessions.joined = true)")
     @current_user_session = Gamesession.find(@players.find(current_user).gs_id)
-    puts @current_user_session
+    @word = @gamesessions.pluck(:word).sample
   end
 
   def create
@@ -28,6 +28,18 @@ class GamesController < ApplicationController
       render :new
     end
   end
+
+  def update
+    @game = Game.find(params[:id])
+    if params[:word]
+      if @game.update_attribute(:word, params[:word])
+      
+        redirect_to("/games/#{params[:id]}")
+      end
+    end
+
+  end
+
 
   protected
 

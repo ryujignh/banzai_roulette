@@ -46,6 +46,15 @@
   <% end %>
 </div>
 
+<div>
+<%= form_tag("/games/#{@game.id}", method: :put) do %>
+              <%= hidden_field_tag :word, @word %>
+              <%= submit_tag 'Start round',:class => 'btn btn-primary' %>
+            
+    
+              <% end %>
+</div>
+
 
 </div>
 
