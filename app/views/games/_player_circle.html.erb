@@ -20,23 +20,32 @@
         var player_outer_wrapper = $("<div/>", {"class": "player_outer_wrapper"});
         if (user) {
           var player_caption = $("<p/>", {"text": user.first_name, "class": "player_caption"});
+          var player_word = $("<p/>", {"text": user.word, "class": ""});
           var player_img = $("<img/>", {"src":"https://graph.facebook.com/" + user.uid + "/picture?type=large", "class":"player_img"});
         }
         else {
           var player_caption = $("<p/>", {"text": "Empty seat", "class": "player_caption"});
           var player_img = $("<img/>", {"src":"https://www.irononsticker.com/images/2013/09/14/NUDE%20GIRLS%20SILHOUETTE%20T%20SHIRT%20IRON%20ON%20TRANSFER.png", "class":"player_img"});
+          var player_word = ''
         }
         $(player_outer_wrapper).css("top", y + "px").css("left", x + "px");
         ;
         var player_wrapper = $("<div/>", {"class": "player_wrapper"});
         $(player_wrapper).append(player_img)
-        $(player_outer_wrapper).append(player_wrapper).append(player_caption);
+        $(player_outer_wrapper).append(player_wrapper).append(player_caption).append(player_word);
         $("#player_circle").append(player_outer_wrapper);
         user = undefined
       }
       ;
     };
   </script>
+
+<div>
+  <%= form_tag("/gamesessions/#{@current_user_session.id}", method: :put) do %>
+    <%= text_field_tag :word%>
+    <%= submit_tag 'Enter your word!',:class => 'btn btn-success' %>
+  <% end %>
+</div>
 
 
 </div>
