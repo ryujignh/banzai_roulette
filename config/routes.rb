@@ -14,14 +14,15 @@ Rails.application.routes.draw do
 
   resources :users
 
-  resources :games do
-    resources :gamesessions do
-      resources :words, only: [:index, :create, :show]
-    end
-  end
+  resources :games
+
+  resources :gamesessions
+
+  resources :words, only: [:index, :create, :show]
+
 
   resources :top
 
-resources :invites, only: [:create]
+  resources :invites, only: [:create]
 
 end
