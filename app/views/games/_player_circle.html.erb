@@ -46,7 +46,7 @@
     <%= submit_tag 'Enter your word!',:class => 'btn btn-success' %>
   <% end %>
 
-  <%= button_to "Post Giphy!", { :controller => "games", :action => "post_giphy"}, {class: 'btn btn-success', id: 'post_giphy'} %>
+  <button type="button" class="btn btn-primary" id="post_giphy">Post to your Facebook wall!</button>
 
 </div>
   <div>
@@ -54,16 +54,17 @@
       <%= hidden_field_tag :word, @word %>
       <%= submit_tag 'Start round', :class => 'btn btn-primary' %>
       <script>
-        var word = <%= @word %>
-            name(word)
+        var word = "<%= @word %>"
+        name(word)
         function name(word) {
-        $(".center_marker").text(word);
-        };
-
-        $('#post_giphy').on(click, function () {
-          alert("clicked");
-          var url = "http://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=";
-          console.log(url += word)
+          $(".center_marker").text(word);
+        }
+        $('#post_giphy').on("click", function() {
+          var url = "//api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=";
+          var gif_url = (url + word);
+          var result = $.getJSON(gif_url)
+          console.log(gif_url);
+          console.log(result);
         });
       </script>
     <% end %>
