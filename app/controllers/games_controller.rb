@@ -10,6 +10,7 @@ class GamesController < ApplicationController
   def show
     @game = Game.find(params[:id])
     @gamesessions = @game.gamesessions
+    @word = @gamesessions.pluck(:user_id).sample
     @players = User.select('DISTINCT users.*')
     .joins("LEFT OUTER JOIN gamesessions ON users.id = gamesessions.user_id")
     .where("gamesessions.id IN (select gamesessions.id from gamesessions where game_id = #{@game.id} AND gamesessions.joined = true)")

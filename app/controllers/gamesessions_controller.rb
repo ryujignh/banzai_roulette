@@ -1,7 +1,9 @@
 class GamesessionsController < ApplicationController
- before_filter :restrict_access
+  before_filter :restrict_access
 
   def index
+    @gamesessions = Gamesession.all
+
   end
 
   def new
@@ -32,16 +34,17 @@ class GamesessionsController < ApplicationController
         redirect_to("/games/#{@gamesession.game_id}")
       end
     else
-    
+
     end
   end
 
 
-  protected
 
-  def gamesession_params
-       params.require(:gamesession).permit(
+    protected
+
+    def gamesession_params
+      params.require(:gamesession).permit(
         :game_id, :user_id, :joined)
-  end
+    end
 
-end
+  end

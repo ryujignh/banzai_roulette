@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'words/new'
+
   root 'top#index', via: :get
 
   post 'top/authorize'
@@ -11,9 +13,15 @@ Rails.application.routes.draw do
   # get 'auth/facebook/callback', to: 'users#login'
 
   resources :users
-  resources :games
+
+  resources :games do
+    resources :gamesessions do
+      resources :words, only: [:index, :create, :show]
+    end
+  end
+
   resources :top
-  resources :gamesessions
-  resources :invites, only:[:create]
+
+resources :invites, only: [:create]
 
 end
