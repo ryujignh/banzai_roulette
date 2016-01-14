@@ -20,13 +20,20 @@
   <%= csrf_meta_tags %>
   </head>
 
+
 <body>
-<%= render partial: "layouts/header" %>
-<main>
-  <div class="container mainbody">
-    <%= yield %>
+<div id="background_image_container">
+  <div id="background_image">
+    <%= render partial: "layouts/header" %>
+    <main>
+      <div class="container mainbody">
+        <%= yield %>
+      </div>
+    </main>
+    <%= render partial: "layouts/footer" %>
   </div>
-</main>
-  <%= render partial: "layouts/footer" %>
+</div>
 </body>
+
+
 </html>
