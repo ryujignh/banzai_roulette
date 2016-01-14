@@ -27,30 +27,28 @@ main {
     flex: 1 0 auto;
 }
 
-/*#background_image_container {*/
-    /*width: 100%;*/
-    /*height: 100%;*/
-    /*!*position: absolute;*!*/
-/*}*/
+.background_image_container {
+    position: absolute;
+    background-image: url('http://images.askmen.com/1200x600/top_10/dating/answers-to-questions-you-re-embarrassed-to-ask-1073350-TwoByOne.jpg');
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    z-index: -1;
+    transition: all 10s ease;
+    /*transition: opacity 5s ease-in;*/
+}
 
-/*#background_image {*/
-    /*height: 100%;*/
-    /*background-size: cover;*/
-    /*position: absolute;*/
-    /*z-index: -1;*/
-/*}*/
-
+.background_image_container_active {
+    opacity: 0.3;
+    ;
+}
 
 h3 {
     font-weight: 300;
     color: #173e43;
-}
-
-.top_page {
-    /*background-image: url(https://api.giphy.com/img/giphy_trending.gif);*/
-    /*-webkit-background-size:;*/
-    /*background-size: cover;*/
-    /*filter: blur(5px);*/
 }
 
 .player_img {
