@@ -9,7 +9,7 @@
     <%= form_tag invites_path, method: :post do %>
       <%= text_field_tag :email, nil, placeholder: "User email" %>
       <%= hidden_field_tag :game_id, @game.id %>
-      <%= submit_tag "Invite user" %>
+      <%= submit_tag "Invite user", :class => 'btn btn-primary' %>
     <% end %>
   </div>
 </div>
