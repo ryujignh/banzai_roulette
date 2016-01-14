@@ -1,7 +1,7 @@
 <div id="player_circle">
   <div class="center_marker">
     <p id="center_word"></p>
-    <div id="post_giphy">
+    <div id="post_giphy" class="loser">
       <%= form_tag("/games/#{@game.id}", method: :put) do %>
         <%= hidden_field_tag :round_open, 1 %>
         <%= submit_tag 'I lost', :class => 'btn btn-primary loser' %>
@@ -68,7 +68,7 @@
   };
 
   var word = "<%= @word %>"
-  $('#post_giphy').on("click", function (e) {
+  $('#post_giphy .loser').on("click", function (e) {
     e.preventDefault(); //It fires ajax, but it prevents next "start round"
     var url = "//api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=";
     var gif_url = (url + word);

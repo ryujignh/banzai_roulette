@@ -3,12 +3,12 @@
     <h1 id="create_roulette">Create a Roulette!</h1>
     <div class="input-field input_game_info">
       <%= form_for Game.new do |f| %>
-        <%= f.text_field "name", :placeholder => "Your roulette name", :class => "validate" %>
-        <%= f.label "Name", :class => "validate" %>
+        <%= f.text_field "name", :placeholder => "Your roulette name", :class => "validate", :id => 'roulette_name' %>
+        <%= f.label "Name", :class => "validate", :id => 'validate_name' %>
         </div>
         <div class="input-field">
           <%= f.text_field "players" %>
-          <%= f.label "Number of Players" %>
+          <%= f.label "Number of Players", :id => 'roulette_players_num' %>
         </div>
         <%= f.submit "Create!", :class => 'btn btn-success' %>
       <% end %>
