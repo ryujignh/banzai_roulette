@@ -9,8 +9,9 @@
     </div>
   </div>
 <div>
+
   <%= form_tag("/gamesessions/#{@current_user_session.id}", method: :put) do %>
-    <%= text_field_tag :word, nil, class: 'wordCreate'%>
+    <%= text_field_tag :word, nil, class: 'wordCreate', :placeholder => "Type your word" %>
     <%= submit_tag 'Enter your word!',:class => 'btn btn-success enter_word' %>
   <% end %>
 
@@ -82,20 +83,11 @@
     var xhr = $.get(gif_url);
     xhr.done(function (data) {
       var result = JSON.parse(xhr.responseText).data.image_original_url;
+      alert("Giphy posted! Please check your Facebook wall:)");
       $.post('/giphys', {gifurl: result})
-          .success(function () {
-            alert("Giphy posted! Please check your Facebook wall:)");
-          });
     });
   });
 
-
 </script>
-
-
-
 </div>
-
-
-
 
