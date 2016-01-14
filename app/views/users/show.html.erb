@@ -17,9 +17,8 @@
         <div class="table-responsive">
           <table class="table">
             <thead>
-            <th>Game Name</th>
             <th>Game Owner</th>
-            <th>Action</th>
+            <th>Game Name</th>
             </thead>
             <tbody>
             <% @gamesessions.each do |game| %>
@@ -66,3 +65,11 @@
     </div>
   </div>
 </div>
+
+<script>
+  $(document).ready(function () {
+    setTimeout(function () {
+      $('.user_show_background_image_container').toggleClass('user_show_background_image_container_active');
+    }, 2000)
+  });
+</script>

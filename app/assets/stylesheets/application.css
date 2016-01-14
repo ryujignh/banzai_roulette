@@ -46,6 +46,25 @@ main {
     ;
 }
 
+.user_show_background_image_container {
+    position: absolute;
+    background-image: url('http://static2.businessinsider.com/image/54affbb86da811a91449aef3/11-embarrassing-interview-mistakes-you-dont-want-to-make.jpg');
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    z-index: -1;
+    transition: all 10s ease;
+    /*transition: opacity 5s ease-in;*/
+}
+
+.user_show_background_image_container_active {
+    opacity: 0.3;
+;
+}
+
 h3 {
     font-weight: 300;
     color: #173e43;
@@ -104,8 +123,6 @@ h3 {
     font-size: 6em;
     transform: translate(-50%, -50%);
 }
-
-
 
 .navbar-static-bottom {
     margin-top: 15px;

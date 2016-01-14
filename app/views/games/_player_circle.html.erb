@@ -4,7 +4,7 @@
     <div id="post_giphy">
       <%= form_tag("/games/#{@game.id}", method: :put) do %>
         <%= hidden_field_tag :round_open, 1 %>
-        <%= submit_tag 'I lost', :class => 'btn btn-primary loser'%>
+        <%= submit_tag 'I lost', :class => 'btn btn-primary loser' %>
       <% end %>
       <%= form_tag("/games/#{@game.id}", method: :put) do %>
         <%= hidden_field_tag :word, @word %>
@@ -13,11 +13,6 @@
       <% end %>
     </div>
   </div>
-<div>
-
-
-
-</div>
 
 
 <script type="text/javascript">
