@@ -1,6 +1,23 @@
-<div class="jumbotron text-center">
-  <h1>Banzai Roulette</h1>
-    <p>the public forfeit for any game</p>
-  <a href="/auth/facebook?game_id=<%= params[:game_id] %>" class="btn btn-primary">Sign in with Facebook</a>
-  <a href="#" class="btn btn-success">Get a tour</a>
+<div class="container valign-wrapper top_page">
+  <div class=" row valign-wrappe top_page_body">
+    <div class="col s12 valign">
+      <h1>Banzai Roulette</h1>
+      <p>the public forfeit for any game</p>
+      <a href="/auth/facebook?game_id=<%= params[:game_id] %>" class="waves-effect waves-light btn-large"><i class="fa fa-facebook-square fa-5x img_login"></i>
+        Sign in with Facebook</a>
+    </div>
+  </div>
 </div>
+
+<script>
+  $(document).ready(function () {
+    setTimeout(function () {
+      $('a').addClass('active');
+    }, 2000);
+
+    setTimeout(function () {
+      $('#background-image').css('background-image', 'url(http://images.askmen.com/1200x600/top_10/dating/answers-to-questions-you-re-embarrassed-to-ask-1073350-TwoByOne.jpg)')
+    }, 2000)
+  });
+
+</script>

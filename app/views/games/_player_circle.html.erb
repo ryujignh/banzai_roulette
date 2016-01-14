@@ -1,29 +1,19 @@
 <div id="player_circle">
   <div class="center_marker">
     <p id="center_word"></p>
+    <div id="post_giphy">
+      <%= form_tag("/games/#{@game.id}", method: :put) do %>
+        <%= hidden_field_tag :round_open, 1 %>
+        <%= submit_tag 'I lost', :class => 'btn btn-primary loser'%>
+      <% end %>
+    </div>
   </div>
 <div>
-  <%= form_tag("/gamesessions/#{@current_user_session.id}", method: :put) do %>
-    <%= text_field_tag :word, nil, class: 'wordCreate'%>
-    <%= submit_tag 'Enter your word!',:class => 'btn btn-success enter_word' %>
-  <% end %>
 
-  <!-- <button type="button" class="btn btn-primary" id="post_giphy">Post to your Facebook wall!</button> -->
-  <div>
-    <%= form_tag("/games/#{@game.id}", method: :put) do %>
-      <%= hidden_field_tag :round_open, 1 %>
-      <%= submit_tag 'I lost', :class => 'btn btn-primary loser'%>
-    <% end %>
-  </div>
+
 
 </div>
-  <div>
-    <%= form_tag("/games/#{@game.id}", method: :put) do %>
-      <%= hidden_field_tag :word, @word %>
-      <%= hidden_field_tag :round_open, 0 %>
-      <%= submit_tag 'Start round', :class => 'btn btn-primary start_game'%>
-    <% end %>
-  </div>
+
 
 <script type="text/javascript">
   var game_word = "<%= @word%>"
@@ -52,7 +42,7 @@
       }
       else {
         var player_caption = $("<p/>", {"text": "Empty seat", "class": "player_caption"});
-        var player_img = $("<img/>", {"src":"https://www.irononsticker.com/images/2013/09/14/NUDE%20GIRLS%20SILHOUETTE%20T%20SHIRT%20IRON%20ON%20TRANSFER.png", "class":"player_img"});
+        var player_img = $("<img/>", {"src":"https://cdn4.iconfinder.com/data/icons/gambling-2/100/3-512.png", "class":"player_img"});
         var player_word = ''
       }
       $(player_outer_wrapper).css("top", y + "px").css("left", x + "px");
@@ -73,17 +63,25 @@
          $('.enter_word').attr("disabled", true)
           $('.start_game').attr("disabled", true)
           $('.loser').attr("disabled", false)}
-        
-      
+
+
   };
 
+  var word = "<%= @word %>"
+  $('#post_giphy').on("click", function (e) {
+    e.preventDefault(); //It fires ajax, but it prevents next "start round"
+    var url = "//api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=";
+    var gif_url = (url + word);
+    $.getJSON(gif_url)
+        .success(function (response) {
+          var result = response.data.image_original_url;
+          $.post('/giphys', {gifurl: result})
+              .success(function () {
+                alert("Giphy posted! Please check your Facebook wall:)");
+              });
+        });
+  });
 
 </script>
-
-
-
 </div>
-
-
-
 
