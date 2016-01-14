@@ -1,3 +1,32 @@
-// Place all the styles related to the user controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+$primary-color: #333;
+$margin: 3%;
+
+.users_show {
+  margin-top: $margin;
+  #users_show_left {
+    margin-right: $margin;
+    #create_roulette {
+      margin-bottom: 5%;
+    }
+  }
+  .your_games {
+    margin-top: $margin;
+  }
+}
+
+.profile {
+  p {
+    margin-bottom: 0;
+  }
+}
+
+#game_invitation {
+  p {
+    margin: 30px 0 0 0;
+  }
+
+  th {
+    margin: 0;
+    padding: 0;
+  }
+}
