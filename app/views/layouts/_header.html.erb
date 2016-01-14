@@ -1,16 +1,14 @@
-<nav>
-  <div class="container">
+<% if current_user %>
+<nav class="header">
     <div class="navbar-wrapper container">
       <a href="/" class="brand-logo">Banzai Roulette</a>
       <ul class="right">
-        <% if current_user %>
           <div class="fb_logged_in">
             <li>
               <%= link_to "Sign Out", '/sign_out', method: :get %>
             </li>
           </div>
-        <% end %>
       </ul>
     </div>
-  </div>
 </nav>
+<% end %>

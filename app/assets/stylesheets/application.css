@@ -15,7 +15,9 @@
  */
 
 body {
-    font-family: 'Open Sans', sans-serif;
+    background: #C9FFBF; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #C9FFBF , #FFAFBD); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #C9FFBF , #FFAFBD); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     display: flex;
     min-height: 100vh;
     flex-direction: column;
@@ -23,79 +25,83 @@ body {
 
 main {
     flex: 1 0 auto;
-
 }
 
+
+h3 {
+    font-weight: 300;
+    color: #173e43;
+}
+
+.top_page {
+    /*background-image: url(https://api.giphy.com/img/giphy_trending.gif);*/
+    /*-webkit-background-size:;*/
+    /*background-size: cover;*/
+    /*filter: blur(5px);*/
+}
 
 .player_img {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
 }
 
-.player_outer_wrapper{
+.player_outer_wrapper {
 
-/*  border: solid black 1px;*/
- 
+    /*  border: solid black 1px;*/
+
 }
 
 .player_wrapper {
     display: inline-block;
-   /* border:thin solid gray;*/
+    /* border:thin solid gray;*/
     margin: 0px auto 10px auto;
 
-
-  }
-
-.player_outer_wrapper{
-  display: inline-block;
-  margin: 0px auto 10px auto;
-  position: absolute;
-  transform: translate(-50%, -50%);
 }
 
-.player_caption{
-/*  display: none;*/
-
- 
-  left:0;
-  right:0;
-  margin-left:auto;
-  margin-right:auto;
-  text-align: center;
+.player_outer_wrapper {
+    display: inline-block;
+    margin: 0px auto 10px auto;
+    position: absolute;
+    transform: translate(-50%, -50%);
 }
 
-#player_circle{
-width: 100%;
-height: 80%;
-position:relative;
+.player_caption {
+    /*  display: none;*/
+
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
 }
 
-.center_marker{
-  position:absolute;
-  left: 50%;
-  top: 50%;
-  
+#player_circle {
+    width: 100%;
+    height: 80%;
+    position: relative;
 }
 
-#center_word{
-  font-size: 6em;
-   transform: translate(-50%, -50%);
+.center_marker {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+
 }
 
-#giphy-banner{
-  width: 100px;
-  height: 20px;
-  padding-left: 10px;
-  vertical-align: middle;
+#center_word {
+    font-size: 6em;
+    transform: translate(-50%, -50%);
 }
 
-.navbar-static-bottom{
-  margin-top: 15px;
+
+
+.navbar-static-bottom {
+    margin-top: 15px;
 }
 
-.playing-cricle{
-  height:960px;
+.playing-cricle {
+    height: 960px;
 }
 
 

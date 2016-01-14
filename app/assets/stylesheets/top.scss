@@ -2,12 +2,59 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.navbar-wrapper {
-  .brand-logo {
-    font-size: 3em;
+$color: #173e43;
+
+.header {
+  box-shadow: none;
+  background-color: rgba(255, 255, 255, 0.19999999999999996);
+
+  .navbar-wrapper {
+    .brand-logo {
+      color: $color;
+      font-size: 3em;
+      font-weight: 200;
+    }
+    a {
+      color: $color;
+      font-weight: 300;
+    }
   }
 }
 
-.page-footer {
+.top_page {
 
+  margin-top: 15%;
+
+  .top_page_body {
+    margin: 0 auto;
+  }
+  h1 {
+    font-size: 64px;
+    color: $color;
+
+  }
+  p {
+    font-size: 28px;
+    font-weight: 100;
+    color: #312c32;
+  }
+  a {
+    opacity: 0;
+    transition: visibility 0s, opacity 3s linear;
+
+  }
+  .active {
+    opacity: 1;
+  }
+
+}
+
+#page-footer {
+  padding: 1% 0 1% 0;
+  box-shadow: none;
+  background-color: rgba(255, 255, 255, 0.2);
+  #giphy-banner {
+    height: 40px;
+    vertical-align: middle;
+  }
 }

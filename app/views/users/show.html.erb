@@ -1,6 +1,6 @@
 <div class="row users_show">
   <div class="col s9" id="users_show_left">
-    <h5 id="create_roulette">Create a Roulette!</h5>
+    <h1 id="create_roulette">Create a Roulette!</h1>
     <div class="input-field input_game_info">
       <%= form_for Game.new do |f| %>
         <%= f.text_field "name", :placeholder => "Your roulette name", :class => "validate" %>
@@ -13,7 +13,7 @@
         <%= f.submit "Create!", :class => 'btn btn-success' %>
       <% end %>
       <div class="your_games">
-        <h5>Your games</h5>
+        <h1>Your games</h1>
         <div class="table-responsive">
           <table class="table">
             <thead>
@@ -40,7 +40,7 @@
       <img src="https://graph.facebook.com/<%= @user.uid %>/picture?type=normal">
     </div>
     <div id="game_invitation">
-      <p>Game invitations</p>
+      <h3>Invitation</h3>
       <div class="table-responsive">
         <table class="table">
           <thead>
