@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-$color: #173e43;
+$font-color: #173e43;
 
 .header {
   box-shadow: none;
@@ -10,12 +10,12 @@ $color: #173e43;
 
   .navbar-wrapper {
     .brand-logo {
-      color: $color;
+      color: $font-color;
       font-size: 3em;
       font-weight: 200;
     }
     a {
-      color: $color;
+      color: $font-color;
       font-weight: 300;
     }
   }
@@ -30,7 +30,7 @@ $color: #173e43;
   }
   h1 {
     font-size: 64px;
-    color: $color;
+    color: $font-color;
 
   }
   p {
@@ -40,7 +40,7 @@ $color: #173e43;
   }
   a {
     opacity: 0;
-    transition: visibility 0s, opacity 3s linear;
+    transition: visibility 0s, opacity 5s linear;
 
   }
   .active {
