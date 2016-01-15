@@ -1,12 +1,5 @@
 <div id="player_circle">
   <div class="center_marker">
-    <p id="center_word"></p>
-    <div id="post_giphy" class="loser">
-      <%= form_tag("/games/#{@game.id}", method: :put) do %>
-        <%= hidden_field_tag :round_open, 1 %>
-        <%= submit_tag 'I lost', :class => 'btn btn-primary loser' %>
-      <% end %>
-    </div>
   </div>
 
 
@@ -32,7 +25,7 @@
       var player_outer_wrapper = $("<div/>", {"class": "player_outer_wrapper"});
       if (user) {
         var player_caption = $("<p/>", {"text": user.first_name, "class": "player_caption"});
-        var player_word = $("<p/>", {"text": "Your word:" + user.word, "class": ""});
+        var player_word = $("<p/>", {"text": "Your word: " + user.word, "class": ""});
         var player_img = $("<img/>", {"src":"https://graph.facebook.com/" + user.uid + "/picture?type=large", "class":"player_img"});
       }
       else {
@@ -63,7 +56,7 @@
   };
 
   var word = "<%= @word %>"
-  $('#post_giphy .loser').on("click", function (e) {
+  $('#post_giphy').on("click", function (e) {
     e.preventDefault(); //It fires ajax, but it prevents next "start round"
     var url = "//api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=";
     var gif_url = (url + word);

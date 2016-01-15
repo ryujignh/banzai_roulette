@@ -2,13 +2,24 @@
   <%= form_tag("/gamesessions/#{@current_user_session.id}", method: :put) do %>
     <%= text_field_tag :word, nil, class: 'wordCreate', :placeholder => "Type your word" %>
     <%= submit_tag 'Enter your word!', :class => 'btn btn-success enter_word' %>
-    <%= form_tag("/games/#{@game.id}", method: :put) do %>
-      <%= hidden_field_tag :word, @word %>
-      <%= hidden_field_tag :round_open, 0 %>
-      <%= submit_tag 'Start round', :class => 'btn btn-primary start_game' %>
-    <% end %>
   <% end %>
-
-
-
+  <%= form_tag("/games/#{@game.id}", method: :put) do %>
+    <%= hidden_field_tag :word, @word %>
+    <%= hidden_field_tag :round_open, 0 %>
+    <%= submit_tag 'Start round', :class => 'btn btn-primary start_game' %>
+    <p id="center_word"></p>
+  <% end %>
+  <div id="post_giphy" class="loser">
+    <%= form_tag("/games/#{@game.id}", method: :put) do %>
+      <%= hidden_field_tag :round_open, 1 %>
+      <%= submit_tag 'I lost', :class => 'btn btn-primary loser' %>
+    <% end %>
+  </div>
 </div>
+
+
+
+
+
+
+
