@@ -37,7 +37,7 @@ class ApplicationController < ActionController::Base
   def restrict_access_home
     if params[:invite] == "true"
       if current_user
-        Gamesession.create(user_id: current_user.id, game_id: params[:id])
+        Gamesession.create(user_id: current_user.id, game_id: params[:game_id])
         redirect_to current_user
       else
         flash[:alert] = "You must log in."
