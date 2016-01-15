@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-$font-color: #173e43;
+$font-color: #2c3e50;
 
 main {
 
@@ -46,7 +46,7 @@ main {
     padding-left: 10px;
     font-size: 28px;
     font-weight: 100;
-    color: #312c32;
+    color: $font-color;
   }
   a {
     margin-left: 10px;
