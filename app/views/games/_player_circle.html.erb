@@ -1,5 +1,6 @@
 <div id="player_circle">
   <div class="center_marker">
+    <p id="center_word">d</p>
   </div>
 
 
@@ -55,7 +56,8 @@
 
   };
 
-  var word = "<%= @word %>"
+var word = "<%= @word %>"
+  var idz = "<%= @game.id %>"
   $('#post_giphy').on("click", function (e) {
     e.preventDefault(); //It fires ajax, but it prevents next "start round"
     var url = "//api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=";
@@ -64,11 +66,21 @@
         .success(function (response) {
           var result = response.data.image_original_url;
           $.post('/giphys', {gifurl: result})
+       
               .success(function () {
                 alert("Giphy posted! Please check your Facebook wall:)");
-              });
+                $.ajax({
+                  url: '/games/' + idz,
+                  type: 'PUT',
+                  data: { round_open: 1 },
+
+                  
+
+    });
+              location.reload(true);});
         });
   });
+
 
 </script>
 </div>

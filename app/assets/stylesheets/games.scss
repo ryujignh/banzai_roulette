@@ -2,10 +2,7 @@
   //width: 0px;
   //height: 0px;
   //
-  #center_word {
-    margin: 0px;
-    height: 0px;
-  }
+
 
 
 #word {
@@ -21,8 +18,11 @@
 }
 
 #center_word {
-  //margin-bottom: 0px;
-  font-size: 6em;
+
+  font-size: 4em;
   text-align: center;
-  //transform: translate(42%, -50%);
+  position: relative;
+  transform: translate(-50%, -120%);
+  font-weight:bold;
+
 }
