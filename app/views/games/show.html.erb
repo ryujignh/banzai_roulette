@@ -1,11 +1,13 @@
-<div class="container">
-  <div class="playing-cricle">
-    <%= link_to 'Back to your profile', current_user %>
-    <%= render 'games/form' %>
-    <%= render 'player_circle' %>
+<div class="row">
+  <div class="col  offset-s1 s9">
+    <div class="playing-cricle">
+      <%= render 'games/form' %>
+      <%= render 'player_circle' %>
+    </div>
+    <div>
+    </div>
   </div>
-  <div>
-
+  <div class="col s2 invite_field">
     <%= form_tag invites_path, method: :post do %>
       <%= text_field_tag :email, nil, placeholder: "User email" %>
       <%= hidden_field_tag :game_id, @game.id %>

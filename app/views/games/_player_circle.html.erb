@@ -1,17 +1,5 @@
 <div id="player_circle">
   <div class="center_marker">
-    <p id="center_word"></p>
-    <div id="post_giphy">
-      <%= form_tag("/games/#{@game.id}", method: :put) do %>
-        <%= hidden_field_tag :round_open, 1 %>
-        <%= submit_tag 'I lost', :class => 'btn btn-primary loser' %>
-      <% end %>
-      <%= form_tag("/games/#{@game.id}", method: :put) do %>
-        <%= hidden_field_tag :word, @word %>
-        <%= hidden_field_tag :round_open, 0 %>
-        <%= submit_tag 'Start round', :class => 'btn btn-primary start_game' %>
-      <% end %>
-    </div>
   </div>
 
 
@@ -37,7 +25,7 @@
       var player_outer_wrapper = $("<div/>", {"class": "player_outer_wrapper"});
       if (user) {
         var player_caption = $("<p/>", {"text": user.first_name, "class": "player_caption"});
-        var player_word = $("<p/>", {"text": "Your word:" + user.word, "class": ""});
+        var player_word = $("<p/>", {"text": "Your word: " + user.word, "class": ""});
         var player_img = $("<img/>", {"src":"https://graph.facebook.com/" + user.uid + "/picture?type=large", "class":"player_img"});
       }
       else {
