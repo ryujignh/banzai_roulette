@@ -14,7 +14,7 @@ main {
 }
 .header {
   box-shadow: none;
-  background-color: rgba(255, 255, 255, 0.19999999999999996);
+  background-color: rgba(0,0,0,0);
 
   .navbar-wrapper {
     .brand-logo {
@@ -25,6 +25,19 @@ main {
     a {
       color: $font-color;
       font-weight: 300;
+    }
+  }
+  .profile {
+    li {
+      text-align: center;
+    }
+    img {
+      width: 60%;
+      border-radius: 50%;
+      vertical-align: middle;
+    }
+    p {
+      margin: 0 auto;
     }
   }
 }

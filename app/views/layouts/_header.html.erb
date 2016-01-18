@@ -1,14 +1,12 @@
 <% if current_user %>
-<nav class="header">
+  <nav class="header">
     <div class="navbar-wrapper container">
       <a href="/" class="brand-logo">Banzai Roulette</a>
-      <ul class="right">
-          <div class="fb_logged_in">
-            <li>
-              <%= link_to "Sign Out", '/sign_out', method: :get %>
-            </li>
-          </div>
+      <ul class="right profile">
+        <li><p><%= @user.first_name %></p></li>
+        <li><img src="https://graph.facebook.com/<%= @user.uid %>/picture?type=normal"></li>
+        <li><div><%= link_to "Sign Out", '/sign_out', method: :get %></div></li>
       </ul>
     </div>
-</nav>
+  </nav>
 <% end %>

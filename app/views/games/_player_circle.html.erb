@@ -41,18 +41,18 @@
       $("#player_circle").append(player_outer_wrapper);
       user = undefined
     }
-      if (game.round_open == 1){
-        $("#center_word").text()
-         $('.enter_word').attr("disabled", false)
-          $('.start_game').attr("disabled", false)
-          $('.loser').attr("disabled", true)}
-      else {
-        $("#center_word").text(game_word)
-         $('.enter_word').attr("disabled", true)
-          $('.start_game').attr("disabled", true)
-          $('.loser').attr("disabled", false)}
-
-
+    if (game.round_open == 1) {
+      $("#center_word").text()
+      $('.enter_word').attr("disabled", false)
+      $('.start_game').attr("disabled", false)
+      $('.loser').attr("disabled", true)
+    }
+    else {
+      $("#center_word").text(game_word)
+      $('.enter_word').attr("disabled", true)
+      $('.start_game').attr("disabled", true)
+      $('.loser').attr("disabled", false)
+    }
   };
 
   var word = "<%= @word %>"
@@ -69,7 +69,7 @@
               });
         });
   });
-
+    
 </script>
 </div>
 
