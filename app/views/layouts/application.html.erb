@@ -1,9 +1,10 @@
 <!DOCTYPE html>
+<html>
 <head>
   <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
   <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <html>
+
   <!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
 
@@ -18,18 +19,19 @@
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  </head>
+</head>
 
 
 <body>
+<div class="background_image_container"></div>
 <div class="user_show_background_image_container"></div>
-  <%= render partial: "layouts/header" %>
-  <main>
-    <div class="container mainbody">
-      <%= yield %>
-    </div>
-  </main>
-  <%= render partial: "layouts/footer" %>
+<%= render partial: "layouts/header" %>
+<main>
+  <div class="container mainbody">
+    <%= yield %>
+  </div>
+</main>
+<%= render partial: "layouts/footer" %>
 
 </body>
 

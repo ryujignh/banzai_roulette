@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   post 'top/authorize'
   post '/', controller: :top, action: :index
-  post "games/post_giphy"
+  # post "games/post_giphy"
 
   get 'auth/:provider/callback', to: "sessions#create"
   get 'sign_out', to: "sessions#destroy", as: 'sign_out'
