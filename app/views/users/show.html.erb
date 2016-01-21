@@ -1,36 +1,9 @@
-<div class="container game_container">
-  <div class="row">
-    <div class="col s12">
-      <div class="input-field">
-        <input type="text" id="giphy_word">
-        <label for="giphy_word">Type your word here!</label>
-      </div>
-      <div id="giphy_word_submit">
-        <a class="waves-effect waves-teal btn-flat">Submit to Facebook!</a>
-      </div>
-    </div>
-  </div>
-</div>
+<%= render partial: 'giphys/form' %>
 
 <script>
   $(document).ready(function () {
     setTimeout(function () {
       $('.user_show_background_image_container').toggleClass('user_show_background_image_container_active');
     }, 2000)
-  });
-
-  var word = $('#giphy_word').val();
-  $('#giphy_word_submit').on("click", function (e) {
-    e.preventDefault(); //It fires ajax, but it prevents next "start round"
-    var url = "//api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=";
-    var gif_url = (url + word);
-    $.getJSON(gif_url)
-        .success(function (response) {
-          var result = response.data.image_original_url;
-          $.post('/giphys', {gifurl: result})
-              .success(function () {
-                alert("Giphy posted! Please check your Facebook wall:)");
-              });
-        });
   });
 </script>

@@ -1,4 +1,4 @@
-<div class="container game_container">
+<div class="container form_container">
   <%= form_tag("/gamesessions/#{@current_user_session.id}", method: :put) do %>
     <%= text_field_tag :word, nil, class: 'wordCreate', :placeholder => "Type your word" %>
     <%= submit_tag 'Enter your word!', id: 'enter_word', :class => 'btn btn-success' %>

@@ -1,0 +1,28 @@
+<div class="container form_container">
+  <div class="row">
+    <div class="col s6 offset-s3 form_body">
+      <div class="input-field">
+        <input type="text" id="giphy_word_field">
+        <label for="giphy_word">Type your word here!</label>
+      </div>
+        <a id="giphy_submit_button" class="waves-effect waves-teal btn-flat">Submit to Facebook!</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  var word = $('#giphy_word').val();
+  $('#giphy_submit_button').on("click", function (e) {
+    e.preventDefault(); //It fires ajax, but it prevents next "start round"
+    var url = "//api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=";
+    var gif_url = (url + word);
+    $.getJSON(gif_url)
+        .success(function (response) {
+          var result = response.data.image_original_url;
+          $.post('/giphys', {gifurl: result})
+              .success(function () {
+                alert("Giphy posted! Please check your Facebook wall:)");
+              });
+        });
+  });
+</script>
