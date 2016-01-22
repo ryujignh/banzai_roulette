@@ -2,19 +2,80 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-$font-color: #2c3e50;
+$font-color: #127FBF;
 
-main {
 
+video {
+  position: fixed;
+  top: -200px;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: 1;
+  opacity: 0.7;
 }
 
 .top_container {
   margin-left: 0;
   padding-top: 20px;
+  position: relative;
+  z-index: 2;
+  opacity: 0;
+  transition: visibility 0s, opacity 3s linear;
 }
+
+.top_container.active {
+  opacity: 1;
+}
+
+.top_page_container {
+  margin-top: 3%;
+
+  .top_page_body {
+    #login {
+      padding-left: 10px;
+      opacity: 0;
+      transition: visibility 3s, opacity 5s linear;
+      background-color: rgba(0, 0, 0, 0);
+      box-shadow: none;
+      &:hover {
+        background-color: rgba(0, 0, 0, 0);
+        box-shadow: none;
+      }
+    }
+    #login.active {
+      opacity: 1;
+    }
+
+  }
+  #brand {
+    text-align: left;
+    font-size: 128px;
+    text-shadow: 1px 1px 10px transparent;
+    transition: text-shadow 5s;
+    color: transparent;
+  }
+  #brand.active {
+    text-shadow: 1px 1px 0px $font-color;
+  }
+  #brand_msg {
+    padding-left: 10px;
+    font-size: 28px;
+    font-weight: 100;
+    color: $font-color;
+  }
+
+  img {
+    opacity: 0;
+    transition: visibility 0s, opacity 5s linear;
+  }
+  .img_active {
+    opacity: 1;
+  }
+}
+
 .header {
   box-shadow: none;
-  background-color: rgba(0,0,0,0);
+  background-color: rgba(0, 0, 0, 0);
 
   .navbar-wrapper {
     .brand-logo {
@@ -39,49 +100,6 @@ main {
     p {
       margin: 0 auto;
     }
-  }
-}
-
-.top_page {
-  margin-top: 15%;
-
-  .top_page_body {
-    margin: 0 auto;
-    padding-right: 400px;
-  }
-  h1 {
-    text-align: left;
-    font-size: 128px;
-    color: $font-color;
-
-  }
-  p {
-    padding-left: 10px;
-    font-size: 28px;
-    font-weight: 100;
-    color: $font-color;
-  }
-  a {
-    margin-left: 10px;
-    opacity: 0;
-    transition: visibility 0s, opacity 2s linear;
-    background-color: rgba(0, 0, 0, 0);
-    box-shadow: none;
-    &:hover{
-      background-color: rgba(0, 0, 0, 0);
-      box-shadow: none;
-    }
-  }
-  .active {
-    opacity: 1;
-  }
-
-  img {
-    opacity: 0;
-    transition: visibility 0s, opacity 5s linear;
-  }
-  .img_active {
-    opacity: 1;
   }
 }
 

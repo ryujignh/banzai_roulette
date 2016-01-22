@@ -1,9 +1,10 @@
+<%= video_tag('women.mp4', autoplay: true, loop: true) %>
 <div class="container top_container">
-  <div class="container valign-wrapper top_page">
+  <div class="container valign-wrapper top_page_container">
     <div class=" row valign-wrappe top_page_body">
       <div class="col s12 valign">
-        <h1>Banzai<br> Roulette</h1>
-        <p>the public forfeit for any game</p>
+        <h1 id="brand">Banzai<br> Roulette</h1>
+        <p id="brand_msg">the public forfeit for any game</p>
         <a href="/auth/facebook?game_id=<%= params[:game_id] %>" class="waves-effect waves-light btn-large" id="login"><i class="fa fa-facebook-square fa-5x img_login"></i>
           Sign in with Facebook</a>
       </div>
@@ -12,13 +13,16 @@
 </div>
 
 <script>
+
   $(document).ready(function () {
     setTimeout(function () {
-      $('a').addClass('active');
+      $('.top_container').addClass('active');
     }, 2000);
     setTimeout(function () {
-      $('.background_image_container').toggleClass('background_image_container_active');
-    }, 2000)
+      console.log("logged");
+      $('#brand').addClass('active');
+      $('#login').addClass('active');
+    }, 5000);
   });
 
 </script>

@@ -27,24 +27,6 @@ main {
     flex: 1 0 auto;
 }
 
-.background_image_container {
-    position: absolute;
-    background-image: url('top_index.jpg');
-    background-size: cover;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    opacity: 0;
-    z-index: -1;
-    transition: all 10s ease;
-}
-
-.background_image_container_active {
-    opacity: 0.3;
-    ;
-}
-
 .user_show_background_image_container {
     position: absolute;
     background-image: url('user_show.jpg');
