@@ -1,4 +1,5 @@
 $font-weight: 300;
+$white: #F7f7f7;
 
 .form_container {
   margin-top: 5%;
@@ -12,19 +13,41 @@ $font-weight: 300;
     text-align: center;
     text-transform: none;
     &:hover {
-      background: #0099F7; /* fallback for old browsers */
-      background: -webkit-linear-gradient(to left, #0099F7, #F11712); /* Chrome 10-25, Safari 5.1-6 */
-      background: linear-gradient(to left, #0099F7, #F11712); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    }
 
-    #giphy_word_field {
-      font-weight: $font-weight;
     }
 
     a {
       color: rgba(0,0,0,0);
     }
 
+  }
+  #giphy_word_field {
+    height: 100%;
+    font-size: 5em;
+    font-weight: $font-weight;
+    text-align: center;
+  }
+}
+
+#success_modal {
+  width: 100%;
+  background-color: transparent;
+  box-shadow: none;
+  p {
+    font-size: 30px;
+    font-weight: 100;
+    text-align: center;
+    color: $white;
+  }
+  .modal-footer {
+    background-color: transparent;
+    text-align: center;
+    a{
+      float: none;
+      color: $white;
+      border: 1px solid $white;
+
+    }
   }
 }
 

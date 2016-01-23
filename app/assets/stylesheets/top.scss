@@ -31,21 +31,19 @@ video {
   margin-top: 3%;
 
   .top_page_body {
-    #login {
-      padding-left: 10px;
-      opacity: 0;
-      transition: visibility 3s, opacity 5s linear;
-      background-color: rgba(0, 0, 0, 0);
-      box-shadow: none;
-      &:hover {
-        background-color: rgba(0, 0, 0, 0);
-        box-shadow: none;
-      }
+  }
+  #login {
+    color: transparent;
+    text-shadow: 1px 1px 0px #fff;
+    padding-left: 10px;
+    opacity: 0;
+    transition: opacity 5s, text-shadow 0.3s linear;
+    &:hover {
+      text-shadow: 1px 1px 3px #fff;
     }
-    #login.active {
-      opacity: 1;
-    }
-
+  }
+  #login.active {
+    opacity: 1;
   }
   #brand {
     text-align: left;
