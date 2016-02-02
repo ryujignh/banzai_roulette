@@ -12,7 +12,6 @@
 /log/*
 !/log/.keep
 /tmp
-/app/assets/videos
 .idea
 /.env
 /.env.production
