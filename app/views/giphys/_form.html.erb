@@ -1,0 +1,52 @@
+<div class="container form_container">
+  <div class="row">
+    <div class="col s6 offset-s3 form_body">
+      <div class="input-field">
+        <!--<label for="giphy_word">Type your word here!</label>-->
+        <input type="text" id="giphy_word_field" placeholder="Your word">
+      </div>
+      <a id="giphy_submit_button" class="waves-effect waves-teal btn-flat">Submit to Facebook!</a>
+    </div>
+  </div>
+</div>
+
+<button data-target="success_modal" class="btn modal-trigger">Modal</button>
+
+<div id="success_modal" class="modal">
+  <div class="modal-content">
+    <p id="success_msg">A new giphy has been posted to your Facebook wall!</p>
+  </div>
+  <div class="modal-footer">
+    <a href="#!" id="re_post" class=" modal-action modal-close waves-effect waves-green btn-flat">Post again</a>
+    <a target="_blank" href="https://www.facebook.com/" class=" modal-action modal-close waves-effect waves-green btn-flat">Go to your Facebook</a>
+  </div>
+</div>
+
+<script>
+  $('#giphy_submit_button').on("click", function (e) {
+    var word = $('#giphy_word_field').val();
+    e.preventDefault(); //It fires ajax, but it prevents next "start round"
+    var url = "//api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=";
+    var gif_url = (url + word);
+    $.getJSON(gif_url)
+        .success(function (response) {
+          var result = response.data.image_original_url;
+          $.post('/giphys', {gifurl: result})
+              .success(function () {
+                $('#success_modal').openModal({
+                  dismissible: false,
+                  opacity: 0.8,
+                  in_duration: 1000
+                });
+              });
+        });
+  });
+  $('#re_post').on('click', function () {
+    $('#giphy_word_field').val("");
+  });
+  $('.modal-trigger').leanModal({
+    opacity: 0.8,
+    in_duration: 1000
+  });
+
+</script>

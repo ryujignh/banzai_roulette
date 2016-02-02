@@ -1,0 +1,65 @@
+
+<div class="row users_show">
+  <div class="col s9" id="users_show_left">
+    <h1 id="create_roulette">Create a Roulette!</h1>
+    <div class="input-field input_game_info">
+      <%= form_for Game.new do |f| %>
+        <%= f.text_field "name", :class => "validate", :id => 'roulette_name' %>
+        <%= f.label "Your roulette name", :class => "validate", :id => 'validate_name' %>
+        </div>
+        <div class="input-field">
+          <%= f.text_field "players" %>
+          <%= f.label "Number of Players", :id => 'roulette_players_num' %>
+        </div>
+        <%= f.submit "Create!", :class => 'btn btn-success' %>
+      <% end %>
+      <div class="your_games">
+        <h1>Your games</h1>
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+            <th>Game Owner</th>
+            <th>Game Name</th>
+            </thead>
+            <tbody>
+            <% @gamesessions.each do |game| %>
+              <tr>
+                <td><%= "#{game.first_name} #{game.last_name}" %></td>
+                <td><%= game.name %></td>
+                <td><a href="/games/<%= game.id %>" class="btn btn-success">Enter Game</a></td>
+              </tr>
+            <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      </div>
+  <div class="col s2 users_show_right">
+
+    <div id="game_invitation">
+      <h3>Invitation</h3>
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+          <th>Game Id</th>
+          <th>Action</th>
+          </thead>
+          <tbody>
+          <% @gameinvites.each do |i| %>
+            <td><%= i.game_id %></td>
+            <td><%= form_tag("/gamesessions/#{i.id}", method: :put) do %>
+                <%= hidden_field_tag :joined, true %>
+                <%= submit_tag 'Accept', :class => 'btn btn-success' %>
+              <%- end -%></td>
+            <td><%= form_tag("/gamesessions/#{i.id}", method: :put) do %>
+                <%= hidden_field_tag :joined, false %>
+                <%= submit_tag 'Deny', :class => 'btn btn-primary' %>
+              <%- end -%></td>
+            </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

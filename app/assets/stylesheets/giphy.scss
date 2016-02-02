@@ -1,3 +1,53 @@
-// Place all the styles related to the giphy controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+$font-weight: 300;
+$white: #F7f7f7;
+
+.form_container {
+  margin-top: 5%;
+
+  .form_body {
+    text-align: center;
+  }
+
+  #giphy_submit_button {
+    border-radius: 5px;
+    text-align: center;
+    text-transform: none;
+    &:hover {
+
+    }
+
+    a {
+      color: rgba(0,0,0,0);
+    }
+
+  }
+  #giphy_word_field {
+    height: 100%;
+    font-size: 5em;
+    font-weight: $font-weight;
+    text-align: center;
+  }
+}
+
+#success_modal {
+  width: 100%;
+  background-color: transparent;
+  box-shadow: none;
+  p {
+    font-size: 30px;
+    font-weight: 100;
+    text-align: center;
+    color: $white;
+  }
+  .modal-footer {
+    background-color: transparent;
+    text-align: center;
+    a{
+      float: none;
+      color: $white;
+      border: 1px solid $white;
+
+    }
+  }
+}
+

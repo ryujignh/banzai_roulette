@@ -8,6 +8,7 @@ class GamesController < ApplicationController
   end
 
   def show
+    @user = current_user
     @game = Game.find(params[:id])
     @gamesessions = @game.gamesessions
     @word = @gamesessions.pluck(:word).sample
