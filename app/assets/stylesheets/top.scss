@@ -33,12 +33,13 @@ video {
   .top_page_body {
   }
   #login {
-    color: transparent;
-    text-shadow: 1px 1px 0px #fff;
+    color: white;
+    //text-shadow: 1px 1px 0px #fff;
     padding-left: 10px;
     opacity: 0;
-    transition: opacity 5s, text-shadow 0.3s linear;
+    transition: opacity 5s, text-shadow 0.3s, color 0.3s linear;
     &:hover {
+      color: #1178b4;
       text-shadow: 1px 1px 3px #fff;
     }
   }
